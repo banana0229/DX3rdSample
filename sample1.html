@@ -3839,7 +3839,7 @@ async function downloadAsFullSet(){
             <dd><b>3</b>
           </dl>
           <dl class="box" id="initiative">
-            <dt>行動値
+            <dt>行動值
             <dd><b>3</b>
           </dl>
           <dl class="box" id="move">
@@ -3886,7 +3886,7 @@ async function downloadAsFullSet(){
             <tbody>
               <tr>
                 <th class="left">覺醒
-                <th class="small">侵蝕値
+                <th class="small">侵蝕值
                 <td rowspan="2" class="left">
               <tr>
                 <td>
@@ -3894,7 +3894,7 @@ async function downloadAsFullSet(){
             <tbody>
               <tr>
                 <th class="left">衝動
-                <th class="small">侵蝕値
+                <th class="small">侵蝕值
                 <td rowspan="2" class="left">
               <tr>
                 <td ></td>
@@ -3902,14 +3902,14 @@ async function downloadAsFullSet(){
               
             
             <tbody>
-              <tr><th class="right">侵蝕率基本値<td class="center bold">0<td>
+              <tr><th class="right">侵蝕率基本值<td class="center bold">0<td>
             </tbody>
           </table>
         </section>
       </div>
 
       <section class="box" id="status">
-        <h2>能力値</h2>
+        <h2>能力值</h2>
         <button class="open-button" onclick="switchStatusBreakdown();" data-open="" data-text-open="詳細顯示" data-text-close="簡略顯示"></button>
         <table>
           <thead>
@@ -4062,7 +4062,7 @@ async function downloadAsFullSet(){
           <button class="open-button" onclick="switchEffectNoteFullOpen();" data-open="" data-text-open="展開所有效果" data-text-close="摺疊效果"></button>
           <table class="data-table line-tbody">
             <thead>
-              <tr><th>類別<th>名稱<th>LV<th>時機<th>技能<th>難易度<th>對象<th>射程<th>侵蝕値<th>限制
+              <tr><th>類別<th>名稱<th>LV<th>時機<th>技能<th>難易度<th>對象<th>射程<th>侵蝕值<th>限制
             </thead>
             <tbody>
                <tr>
@@ -4197,13 +4197,13 @@ async function downloadAsFullSet(){
               <dl><dt>難易度    <dd><span>對決</span></dl>
               <dl><dt>對象      <dd><span>單體</span></dl>
               <dl><dt>射程      <dd><span>至近</span></dl>
-              <dl><dt>侵蝕値    <dd><span>4</span></dl>
+              <dl><dt>侵蝕值    <dd><span>4</span></dl>
             </div>
             <dl class="combo-out">
               <dt class="combo-cond">條件
               <dt class="combo-dice">骰子數
-              <dt class="combo-crit">Ｃ値
-              <dt class="combo-fixed">達成値修正
+              <dt class="combo-crit">Ｃ值
+              <dt class="combo-fixed">達成值修正
               <dt class="combo-atk">攻擊力
               
               <dd class="combo-cond"><b>100%未満</b><dd class="combo-dice" data-edb="0">8+4<dd class="combo-crit">8<dd class="combo-fixed">4<dd class="combo-atk">13
@@ -4231,7 +4231,7 @@ async function downloadAsFullSet(){
           <section class="box">
             <table class="data-table">
               <thead>
-                <tr><th>一般道具<th>常備化<th>経験点<th>類別<th>技能<th>說明
+                <tr><th>一般道具<th>常備化<th>經驗值<th>類別<th>技能<th>說明
               </thead>
               <tbody>
                 <tr>
@@ -4249,11 +4249,11 @@ async function downloadAsFullSet(){
         
         <section class="box" id="exps">
           
-          <h2>経験点計算</h2>
+          <h2>經驗值計算</h2>
           <table>
             <thead>
               <tr>
-                <th>能力値
+                <th>能力值
                 <th>技能
                 <th>異能
                 
@@ -4277,7 +4277,7 @@ async function downloadAsFullSet(){
       </div>
       <div id="enc-bonus">
         <details class="box">
-          <summary>侵蝕率効果表</summary>
+          <summary>侵蝕率效果表</summary>
           <p>
             現在侵蝕率:<input type="number" id="current-encroach" value="0" oninput="encroachBonusSet(this.value);">
             <input type="checkbox" id="encroach-ea-on" oninput="encroachBonusType();" ><label for="encroach-ea-on">エフェクトアーカイブ</label>
