@@ -1043,7 +1043,7 @@ dl.box > dt,
   }
 }
 details:not([open]) > summary::after {
-  content: "（クリックで展開）";
+  content: "（點擊展開）";
   font-size: 80%;
   font-weight: normal;
   opacity: 0.8;
@@ -3340,7 +3340,7 @@ body {
   border-radius: 5px;
 }
 #enc-bonus details:not([open]) summary::after {
-  content: '（クリックで展開）';
+  content: '（點擊展開）';
   font-size: 90%;
 }
 #enc-bonus p {
@@ -3914,7 +3914,7 @@ async function downloadAsFullSet(){
 
       <section class="box" id="status">
         <h2>能力値</h2>
-        <button class="open-button" onclick="switchStatusBreakdown();" data-open="" data-text-open="能力値内訳を表示" data-text-close="能力値内訳を畳む"></button>
+        <button class="open-button" onclick="switchStatusBreakdown();" data-open="" data-text-open="詳細顯示" data-text-close="簡略顯示"></button>
         <table>
           <thead>
           <tr>
@@ -4193,7 +4193,7 @@ async function downloadAsFullSet(){
           <h2>組合</h2>
           <button class="open-button" onclick="swapComboDisplayMode();" data-open="true" data-text-open="詳細表示" data-text-close="簡略表示"></button>
           <div class="combo-table">
-            <h3><span>獣爪撃</span></h3>
+            <h3><span>獸爪擊</span></h3>
             <dl class="combo-combo"><dt>組合<dd><span><span class="thin">《專注:變異魔獸》</span><span class="thin">《獸之力》</span></span></dl>
             <div class="combo-in">
               <dl><dt>時機<dd><span><span class="thin">主要<span class="shorten">動作</span></span></span></dl>
@@ -4205,7 +4205,7 @@ async function downloadAsFullSet(){
             </div>
             <dl class="combo-out">
               <dt class="combo-cond">條件
-              <dt class="combo-dice">ダイス
+              <dt class="combo-dice">骰子數
               <dt class="combo-crit">Ｃ値
               <dt class="combo-fixed">達成値修正
               <dt class="combo-atk">攻擊力
@@ -4349,17 +4349,17 @@ async function downloadAsFullSet(){
           <thead>
             <tr>
               <th class="num   ">No.
-              <th class="date  ">日付
-              <th class="title ">タイトル
-              <th class="exp   ">経験点
+              <th class="date  ">日期
+              <th class="title ">標題
+              <th class="exp   ">經驗值
               <th class="gm    ">GM
-              <th class="member">参加者
+              <th class="member">參加人員
             </tr>
           <tbody>
             <tr>
               <td class="num   " >
               <td class="date  " >
-              <td class="title " >フルスクラッチ作成
+              <td class="title " >完全描繪創建
               <td class="exp   ">0
               <td class="gm    "><span></span>
               <td class="member">
