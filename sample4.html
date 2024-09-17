@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="night">
 
 <head>
   <meta charset="UTF-8">
@@ -2650,7 +2650,7 @@ body {
   font-feature-settings: "palt";
 }
 #lois table tbody td {
-  &:nth-child(1) { width: 6.2em; } /* 関係 */
+  &:nth-child(1) { width: 6.2em; } /* 關係 */
   &:nth-child(2) { width: 14em;  }  /* 名前 */
   &:nth-child(3) { width: 4.8em; } /* 感情 */
   &:nth-child(4) { width: 1.2em; }
@@ -2761,7 +2761,7 @@ body {
   display: none;
 }
 
-#memory table tbody td:nth-child(1) { width: 6.2em; border-right-width: 1px; } /* 関係 */
+#memory table tbody td:nth-child(1) { width: 6.2em; border-right-width: 1px; } /* 關係 */
 #memory table tbody td:nth-child(2) { width:  14em; border-right-width: 1px; } /* 名前 */
 #memory table tbody td:nth-child(3) { width: 4.5em; border-right-width: 1px; } /* 感情 */
 #memory table tbody td.left {
@@ -3771,12 +3771,6 @@ async function downloadAsFullSet(){
 <body>
   <header>
     <h1><a href="./">ゆとシートⅡ for DX3rd - ゆと工公式鯖</a></h1>
-    <nav>
-      <ul>
-        
-        <li><a onclick="nightModeChange()" class="nightmode-icon" title="ナイトモード"></a>
-      </ul>
-    </nav>
   </header>
   <div class="header-back-name">“深緑の使徒” - ゆとシートⅡ for DX3rd - ゆと工公式鯖</div>
   
@@ -3794,16 +3788,10 @@ async function downloadAsFullSet(){
     <article >
       <div id="area-name" class="color-set">
         <h1 id="character-name"><span id="aka">“<ruby>深緑の使徒<rp>(</rp><rt>ストレイ・シープ</rt><rp>)</rp></ruby>”</span></h1>
-        <div>
-        <p id="update-time"><time>2021-04-23 02:26</time></p>
-        <p id="player-name">プレイヤー：</p>
-        </div>
       </div>
       
       <div id="tags">
-        <a id="group" href="./?group=sample">サンプル</a>
-        
-        <a class="tag" href="./?tag=%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e3%82%ad%e3%83%a3%e3%83%a9%e3%82%af%e3%82%bf%e3%83%bc">サンプルキャラクター</a><a class="tag" href="./?tag=LM">LM</a>
+        <a class="tag">範例角色</a>
       </div>
       <div class="column column-status"><!-- COLUMN -->
       <div id="area-status">
@@ -3812,24 +3800,24 @@ async function downloadAsFullSet(){
         
 
         <div id="personal" class="box-union">
-          <dl class="box"><dt>年齢<dd></dl>
+          <dl class="box"><dt>年齡<dd></dl>
           <dl class="box"><dt>性別<dd></dl>
           <dl class="box"><dt>星座<dd></dl>
-          <dl class="box"><dt>身長<dd></dl>
-          <dl class="box"><dt>体重<dd></dl>
-          <dl class="box"><dt>血液型<dd></dl>
+          <dl class="box"><dt>身高<dd></dl>
+          <dl class="box"><dt>體重<dd></dl>
+          <dl class="box"><dt>血型<dd></dl>
         </div>
         <div id="works-cover" class="box-union">
-          <dl class="box"><dt>ワークス<dd>UGNエージェントC</dl>
-          <dl class="box"><dt>カヴァー<dd>UGNエージェント</dl>
+          <dl class="box"><dt>真身<dd>UGNエージェントC</dl>
+          <dl class="box"><dt>表面<dd>UGNエージェント</dl>
         </div>
 
         <div id="renegade" class="box-union">
           <dl class="box" id="breed">
-            <dt>ブリード<dd>クロス<span class="shorten">ブリード</span>
+            <dt>血統<dd>クロス<span class="shorten">ブリード</span>
           </dl>
           <dl class="box" id="syndrome">
-            <dt>シンドローム
+            <dt>症候群
             <dd>オルクス
             <dd>ソラリス
             <dt>
@@ -3839,15 +3827,15 @@ async function downloadAsFullSet(){
 
         <div id="sub-status" class="box-union">
           <dl class="box" id="max-hp">
-            <dt>HP最大値
+            <dt>最大HP
             <dd><b>27</b>
           </dl>
           <dl class="box" id="stock-pt">
-            <dt>常備化<span class="shorten">ポイント</span>
+            <dt>常備化<span class="shorten">點數</span>
             <dd><b>12</b>
           </dl>
           <dl class="box" id="saving">
-            <dt>財産<span class="shorten">ポイント</span>
+            <dt>財產<span class="shorten">點數</span>
             <dd><b>10</b>
           </dl>
           <dl class="box" id="initiative">
@@ -3855,7 +3843,7 @@ async function downloadAsFullSet(){
             <dd><b>7</b>
           </dl>
           <dl class="box" id="move">
-            <dt>戦闘移動
+            <dt>戰鬥移動
             <dd><b>12</b>
           </dl>
           <dl class="box" id="dash">
@@ -3871,21 +3859,21 @@ async function downloadAsFullSet(){
           <dt>消費<dd>+0
           <dt>未使用<dd>0
         </dl>
-        <div class="create-type">フルスクラッチ<span class="nowrap shorten">作成</span></div>
+        <div class="create-type">完全描繪<span class="nowrap shorten">創建</span></div>
         </section>
         
         <section class="box" id="lifepath">
-          <h2>ライフパス</h2>
+          <h2>經歷</h2>
           <table class="data-table line-tbody">
             <tbody>
               <tr>
-                <th class="left" colspan="2">出自
+                <th class="left" colspan="2">來源
                 <td rowspan="2" class="left">
               <tr>
                 <td colspan="2"></td>
             <tbody>
               <tr>
-                <th class="left" colspan="2">経験
+                <th class="left" colspan="2">經驗
                 <td rowspan="2" class="left">
               <tr>
                 <td colspan="2"></td>
@@ -3897,7 +3885,7 @@ async function downloadAsFullSet(){
                 <td colspan="2"></td>
             <tbody>
               <tr>
-                <th class="left">覚醒
+                <th class="left">覺醒
                 <th class="small">侵蝕値
                 <td rowspan="2" class="left">
               <tr>
@@ -3926,42 +3914,42 @@ async function downloadAsFullSet(){
         <table>
           <thead>
           <tr>
-            <th>肉体<td data-edb>1
-            <th>感覚<td data-edb>1
+            <th>肉體<td data-edb>1
+            <th>感覺<td data-edb>1
             <th>精神<td data-edb>5
-            <th>社会<td data-edb>5
+            <th>社會<td data-edb>5
           
             <tr class="breakdown">
-              <th>シンドローム<td>0＋0
-              <th>シンドローム<td>1＋0
-              <th>シンドローム<td>1＋1
-              <th>シンドローム<td>2＋3
+              <th>症候群<td>0＋0
+              <th>症候群<td>1＋0
+              <th>症候群<td>1＋1
+              <th>症候群<td>2＋3
             <tr class="breakdown">
-              <th>ワークス<td>
-              <th>ワークス<td>
-              <th>ワークス<td>1
-              <th>ワークス<td>
+              <th>真身<td>
+              <th>真身<td>
+              <th>真身<td>1
+              <th>真身<td>
             <tr class="breakdown">
               <th>成長<td>1
               <th>成長<td>
               <th>成長<td>2
               <th>成長<td>
             <tr class="breakdown">
-              <th>その他修正<td>
-              <th>その他修正<td>
-              <th>その他修正<td>
-              <th>その他修正<td>
+              <th>其他修正<td>
+              <th>其他修正<td>
+              <th>其他修正<td>
+              <th>其他修正<td>
             </tr>
         
           </thead>
           <tr>
-            <td class="left">白兵<td class="right"></td>
-            <td class="left">射撃<td class="right"></td>
+            <td class="left">近戰<td class="right"></td>
+            <td class="left">射擊<td class="right"></td>
             <td class="left">ＲＣ<td class="right">2</td>
-            <td class="left">交渉<td class="right">1</td>
+            <td class="left">交涉<td class="right">1</td>
           <tr>
             <td class="left">回避<td class="right"></td>
-            <td class="left">知覚<td class="right">1</td>
+            <td class="left">知覺<td class="right">1</td>
             <td class="left">意志<td class="right">2</td>
             <td class="left">調達<td class="right">1</td>
           <tr>
@@ -3991,12 +3979,12 @@ async function downloadAsFullSet(){
         <table class="data-table">
           <thead>
             <tr>
-              <th>関係
-              <th>名前
+              <th>關係
+              <th>名字
               <th colspan="3">感情<span class="small">(Posi／Nega)</span>
               <th class="color">属性
               <th>
-              <th class="state right"><span class="text">状態</span>
+              <th class="state right"><span class="text">狀態</span>
           </thead>
           <tbody>
             <tr>
@@ -4075,61 +4063,64 @@ async function downloadAsFullSet(){
       
       <div id="area-battle">
         <section class="box effects" id="effect">
-          <h2>エフェクト</h2>
+          <h2>異能</h2>
           <button class="open-button" onclick="switchEffectNoteFullOpen();" data-open="" data-text-open="効果を全展開" data-text-close="効果を折畳む"></button>
           <table class="data-table line-tbody">
             <thead>
-              <tr><th>種別<th>名称<th>LV<th>タイミング<th>技能<th>難易度<th>対象<th>射程<th>侵蝕値<th>制限
+              <tr><th>類別<th>名稱<th>LV<th>時機<th>技能<th>難易度<th>對象<th>射程<th>侵蝕値<th>限制
             </thead>
             <tbody>
-               <tr>
-                <td rowspan="2"><i class="ef-auto"></i>
-                <td class="name">リザレクト
-                <td>1
-                <td><span class="thin">オート<span class="shorten">アクション</span></span>
-                <td><span class="d-dash">―</span>
-                <td><span class="thinest small">自動成功</span>
-                <td>自身
-                <td>至近
-                <td><span class="thinest small">効果参照</span>
-                <td><span class="d-dash">―</span>
               <tr>
-                <td class="left" colspan="9">(Lv)D点HP回復、侵蝕値上昇</td>
-            <tbody>
-               <tr>
-                <td rowspan="2"><i class="ef-auto"></i>
-                <td class="name">ワーディング
-                <td>1
-                <td><span class="thin">オート<span class="shorten">アクション</span></span>
-                <td><span class="d-dash">―</span>
-                <td><span class="thinest small">自動成功</span>
-                <td>シーン
-                <td>視界
-                <td>0
-                <td><span class="d-dash">―</span>
+               <td rowspan="2"><i class="ef-auto"></i>
+               <td class="name">復原
+               <td>1
+               <td><span class="thin">自動<span class="shorten">動作</span></span>
+               <td><span class="d-dash">―</span>
+               <td><span class="thinest small">自動成功</span>
+               <td>自身
+               <td>至近
+               <td><span class="thinest small">根據效果</span>
+               <td><span class="d-dash">―</span>
+             <tr>
+               <td class="left" colspan="9">當你陷入無法戰鬥，或是場景結束時可使用。<br>
+                 你解除無法戰鬥並恢復(Lv)D點的HP，同時你的侵蝕率上升等同恢復的HP的數值。<br>
+                 侵蝕率在100%以上時無法使用該異能。<br>
+                 該異能就算陷入重壓亦可使用。</td>
+           <tbody>
               <tr>
-                <td class="left" colspan="9">非オーヴァードをエキストラ化</td>
-            <tbody>
-               <tr>
-                <td rowspan="2">
-                <td class="name"><span class="thin">コンセントレイト：オルクス</span>
-                <td>2
-                <td><span class="thin">メジャー<span class="shorten">アクション</span></span>
-                <td><span class="thin">シンドローム</span>
-                <td><span class="d-dash">―</span>
-                <td><span class="d-dash">―</span>
-                <td><span class="d-dash">―</span>
-                <td>2
-                <td><span class="d-dash">―</span>
+               <td rowspan="2"><i class="ef-auto"></i>
+               <td class="name">防衛
+               <td>1
+               <td><span class="thin">自動<span class="shorten">動作</span></span>
+               <td><span class="d-dash">―</span>
+               <td><span class="thinest small">自動成功</span>
+               <td>場景
+               <td>視界
+               <td>0
+               <td><span class="d-dash">―</span>
+             <tr>
+               <td class="left" colspan="9">於空氣中散佈特殊物質，使一般人無力化。該異能持續到場景結束。</td>
+           <tbody>
               <tr>
-                <td class="left" colspan="9"></td>
-            <tbody>
+               <td rowspan="2">
+               <td class="name"><span class="thin">專注:冥府領域</span>
+               <td>2
+               <td><span class="thin">主要<span class="shorten">動作</span></span>
+               <td><span class="thin">症候群</span>
+               <td><span class="d-dash">―</span>
+               <td><span class="d-dash">―</span>
+               <td><span class="d-dash">―</span>
+               <td>2
+               <td><span class="d-dash">―</span>
+             <tr>
+               <td class="left" colspan="9">和選擇的症候群異能組合時，判定的C值可以降低LV點，下限值為7。</td>
+           <tbody>
                <tr>
                 <td rowspan="2">
                 <td class="name">要の陣形
                 <td>1
                 <td><span class="thin">メジャー<span class="shorten">アクション</span></span>
-                <td><span class="thin">シンドローム</span>
+                <td><span class="thin">症候群</span>
                 <td><span class="d-dash">―</span>
                 <td>3体
                 <td><span class="d-dash">―</span>
@@ -4143,7 +4134,7 @@ async function downloadAsFullSet(){
                 <td class="name">導きの華
                 <td>2
                 <td><span class="thin">メジャー<span class="shorten">アクション</span></span>
-                <td><span>〈RC〉</span><span>〈交渉〉</span>
+                <td><span>〈RC〉</span><span>〈交涉〉</span>
                 <td><span class="thinest small">自動成功</span>
                 <td>単体
                 <td>視界
@@ -4203,7 +4194,7 @@ async function downloadAsFullSet(){
               <dl><dt>タイミング<dd><span><span class="thin">メジャー<span class="shorten">アクション</span></span></span></dl>
               <dl><dt>技能      <dd><span>RC</span></dl>
               <dl><dt>難易度    <dd><span><span class="thinest small">自動成功</span></span></dl>
-              <dl><dt>対象      <dd><span>単体</span></dl>
+              <dl><dt>對象      <dd><span>単体</span></dl>
               <dl><dt>射程      <dd><span>視界</span></dl>
               <dl><dt>侵蝕値    <dd><span>7</span></dl>
             </div>
@@ -4236,15 +4227,15 @@ async function downloadAsFullSet(){
           <section class="box">
             <table class="data-table">
               <thead>
-                <tr><th>武器<th>常備化<th>経験点<th>種別<th>技能<th>命中<th>攻撃力<th><span class="small">ガード<br>値</span><th>射程<th>解説
+                <tr><th>武器<th>常備化<th>経験点<th>類別<th>技能<th>命中<th>攻撃力<th><span class="small">ガード<br>値</span><th>射程<th>解説
               </thead>
               <tbody>
                 <tr>
                   <td>素手
                   <td>
                   <td>
-                  <td>白兵
-                  <td><span class="thin"><span>〈白兵〉</span></span>
+                  <td>近戰
+                  <td><span class="thin"><span>〈近戰〉</span></span>
                   <td>0
                   <td>-5
                   <td>0
@@ -4259,7 +4250,7 @@ async function downloadAsFullSet(){
           <section class="box">
             <table class="data-table">
               <thead>
-                <tr><th>一般アイテム<th>常備化<th>経験点<th>種別<th>技能<th>解説
+                <tr><th>一般アイテム<th>常備化<th>経験点<th>類別<th>技能<th>解説
               </thead>
               <tbody>
                 <tr>
@@ -4390,7 +4381,7 @@ async function downloadAsFullSet(){
             <tr>
               <td class="num   " >
               <td class="date  " >
-              <td class="title " >フルスクラッチ作成
+              <td class="title " >完全描繪創建
               <td class="exp   ">0
               <td class="gm    "><span></span>
               <td class="member">
@@ -4409,14 +4400,14 @@ async function downloadAsFullSet(){
         <textarea id="chatPaletteBox"></textarea>
       </section>
     </article>
-    <div class="back-button"><a href="./index.html">⏎</a></div>
+    <div class="back-button"><a href="./">⏎</a></div>
      
   </main>
   
 
   <footer>
     <p class="notes">©FarEast Amusement Research Co.,Ltd.「ダブルクロスThe 3rd Edition」</p>
-    <p class="copyright">©<a href="https://yutorize.2-d.jp">ゆとらいず工房</a>「ゆとシートⅡ」ver.1.25.016</p>
+    <p class="copyright">©「ゆとシートⅡ」ver.1.25.016</p>
   </footer>
 </body>
 
