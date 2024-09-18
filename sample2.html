@@ -3451,7 +3451,7 @@ const sheetId = '6PyGDq';
 const paletteTool = '';
 const generateType = 'DoubleCross3PC';
 const defaultImage = '../_core/skin/dx3/img/default_pc.png';
-const images = {  };
+const images = { '1': "./img/sc02.jpg"  };
 
 
 
@@ -3796,7 +3796,10 @@ async function downloadAsFullSet(){
       <div class="column column-status"><!-- COLUMN -->
       <div id="area-status">
         
-        <div id="image-none" class="image-none" data-title="DX&#13;&#10;3rd"><p class="words" style="right:0;top:0;"><span><span class="brackets">「</span>任務了解。</span><span>……早く、</span><span>終わらせよう」</span></p></div>
+        <div id="image" class="image" style="background-image: url();background-size:cover;background-position:73.719% 1.022%;">
+          <div onclick="popImage()"><p class="words" style="right:0;top:0;"><span><span class="brackets">「</span>任務了解。</span><span>……早く、</span><span>終わらせよう」</span></p></div>
+          <p class="image-copyright"></p>
+        </div>
         
 
         <div id="personal" class="box-union">
@@ -4422,7 +4425,9 @@ async function downloadAsFullSet(){
       </section>
     </article>
     <div class="back-button"><a href="./">⏎</a></div>
-     
+    <div id="image-box" onclick="closeImage()">
+      <img src="" id="image-box-image">
+    </div>
   </main>
   
 
