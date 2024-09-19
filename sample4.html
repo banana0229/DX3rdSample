@@ -3797,7 +3797,7 @@ async function downloadAsFullSet(){
       <div id="area-status">
         
         <div id="image" class="image" style="background-image: url();background-size:cover;background-position:73.719% 1.022%;">
-          <div onclick="popImage()"><p class="words" style="right:0;top:0;"><span><span class="brackets">「</span>現在這樣就好。</span><span>……至少現在是如此」</span></p></div>
+          <div onclick="popImage()"><p class="words" style="right:0;top:0;"><span><span class="brackets">「</span>至少現在</span><span>……這樣就好」</span></p></div>
           <p class="image-copyright"></p>
         </div>
         
@@ -4120,7 +4120,7 @@ async function downloadAsFullSet(){
            <tbody>
                <tr>
                 <td rowspan="2">
-                <td class="name">要の陣形
+                <td class="name">要點陣形(要の陣形)
                 <td>1
                 <td><span class="thin">主要<span class="shorten">動作</span></span>
                 <td><span class="thin">症候群</span>
@@ -4128,13 +4128,14 @@ async function downloadAsFullSet(){
                 <td>3體
                 <td><span class="d-dash">―</span>
                 <td>3
-                <td><span class="d-dash">―</span>
+                <td><span class="d-dash">LV/劇本</span>
               <tr>
-                <td class="left" colspan="9"></td>
+                <td class="left" colspan="9">利用領域，使對象變成複數的異能。<br>
+                  組合此異能的行動對象變更成3名。</td>
             <tbody>
                <tr>
                 <td rowspan="2">
-                <td class="name">導きの華
+                <td class="name">引導之花(導きの華)
                 <td>2
                 <td><span class="thin">主要<span class="shorten">動作</span></span>
                 <td><span>〈RC〉</span><span>〈交涉〉</span>
@@ -4144,11 +4145,11 @@ async function downloadAsFullSet(){
                 <td>2
                 <td><span class="d-dash">―</span>
               <tr>
-                <td class="left" colspan="9"></td>
+                <td class="left" colspan="9">對象下次主要動作的判定達成值+[LVx2]，但是對購入判定無效。</td>
             <tbody>
                <tr>
                 <td rowspan="2">
-                <td class="name">癒しの水
+                <td class="name">療癒之水(癒しの水)
                 <td>1
                 <td><span class="thin">主要<span class="shorten">動作</span></span>
                 <td><span>〈RC〉</span>
@@ -4158,11 +4159,11 @@ async function downloadAsFullSet(){
                 <td>2
                 <td><span class="d-dash">―</span>
               <tr>
-                <td class="left" colspan="9"></td>
+                <td class="left" colspan="9">回復對象[(LV)D+【精神】]點HP。</td>
             <tbody>
                <tr>
                 <td rowspan="2">
-                <td class="name">狂戦士
+                <td class="name">狂戰士(狂戦士)
                 <td>2
                 <td><span class="thin">主要<span class="shorten">動作</span></span>
                 <td><span>〈RC〉</span>
@@ -4170,9 +4171,9 @@ async function downloadAsFullSet(){
                 <td>單體
                 <td>視界
                 <td>5
-                <td><span class="d-dash">―</span>
+                <td><span class="d-dash">80%</span>
               <tr>
-                <td class="left" colspan="9"></td>
+                <td class="left" colspan="9">對象下次主要動作的判定C值-1（下限值6），且判定骰數+[LVx2]顆。</td>
             
           </table>
         </section>
@@ -4191,8 +4192,8 @@ async function downloadAsFullSet(){
           <h2>組合</h2>
           <button class="open-button" onclick="swapComboDisplayMode();" data-open="true" data-text-open="詳細表示" data-text-close="簡略表示"></button>
           <div class="combo-table">
-            <h3><span>狂乱の華</span></h3>
-            <dl class="combo-combo"><dt>組合<dd><span><span class="thin">《導きの華》</span><span class="thin">《狂戦士》</span></span></dl>
+            <h3><span>狂亂之花</span></h3>
+            <dl class="combo-combo"><dt>組合<dd><span><span class="thin">《引導之花》</span><span class="thin">《狂戰士》</span></span></dl>
             <div class="combo-in">
               <dl><dt>時機<dd><span><span class="thin">主要<span class="shorten">動作</span></span></span></dl>
               <dl><dt>技能      <dd><span>RC</span></dl>
@@ -4208,13 +4209,13 @@ async function downloadAsFullSet(){
               <dt class="combo-fixed">達成值修正
               <dt class="combo-atk">攻擊力
               
-              <dd class="combo-cond"><b>100%未満</b><dd class="combo-dice" data-edb="0">なし<dd class="combo-crit"><span class="d-dash">―</span><dd class="combo-fixed"><span class="d-dash">―</span><dd class="combo-atk"><span class="d-dash">―</span>
-              <dd class="combo-cond"><b>100%以上</b><dd class="combo-dice" data-edb="0">なし<dd class="combo-crit"><span class="d-dash">―</span><dd class="combo-fixed"><span class="d-dash">―</span><dd class="combo-atk"><span class="d-dash">―</span>
+              <dd class="combo-cond"><b>100%未満</b><dd class="combo-dice" data-edb="0">無<dd class="combo-crit"><span class="d-dash">―</span><dd class="combo-fixed"><span class="d-dash">―</span><dd class="combo-atk"><span class="d-dash">―</span>
+              <dd class="combo-cond"><b>100%以上</b><dd class="combo-dice" data-edb="0">無<dd class="combo-crit"><span class="d-dash">―</span><dd class="combo-fixed"><span class="d-dash">―</span><dd class="combo-atk"><span class="d-dash">―</span>
               
               
               
             </dl>
-            <p class="combo-note">要80%。対象のC値-1、ダイス+4、達成値+4<br>100%以上 ＝ 対象のC値-1、ダイス+6、達成値+6</p>
+            <p class="combo-note">須80%以上，對象C值-1、骰子+4、達成值+4<br>100%以上 ＝ 對象C值-1、骰子+6、達成值+6</p>
           </div>
         </section>
         <script>
@@ -4383,12 +4384,12 @@ async function downloadAsFullSet(){
       }
       </script>
       <section class="box" id="free-note">
-        <h2>容姿・経歴・その他メモ</h2>
+        <h2>外貌・經歷・筆記</h2>
         <p></p>
       </section>
       
       <section class="box" id="history">
-        <h2>セッション履歴</h2>
+        <h2>團務歷程</h2>
         <table class="data-table line-tbody">
           <thead>
             <tr>
