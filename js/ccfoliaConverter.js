@@ -412,6 +412,23 @@ function GetCcfoliaData() {
 		{
 			let paramsArray = Array();
 
+			paramsArray.push({
+				"label": "攻擊力",
+				"value": "0"
+			});
+			paramsArray.push({
+				"label": "格擋值",
+				"value": "0"
+			});
+			paramsArray.push({
+				"label": "裝甲值",
+				"value": "0"
+			});
+			paramsArray.push({
+				"label": "閃躲",
+				"value": "0"
+			});
+
 			let statusBoxElement = document.getElementById('status');
 			
 			let abilityRootElement = statusBoxElement.children[2].children[0].children[0];
@@ -551,47 +568,6 @@ function GetCcfoliaData() {
 					commands = commands.concat("({" + abilityName +"}" + "+{侵蝕骰數修正}+0)DX(10-0)+{"+skillName+"}"+"　<"+ skillName + ">判定\n");
 				}
 			}
-		/*
-			var table = document.getElementsByClassName('nospace')[3];
-			var commands = "";
-
-			let battleSkillElement;
-			let battleSkillDiceElement;
-			var battleSkillValue;
-			var battleSkill;
-			var battleSkillNames = ["命中判定", "迴避判定", "抵抗判定"];
-			for (i = 0; i < 3; i++) {
-				battleSkillElement = table.rows[i].cells[14];
-				battleSkillDiceElement = table.rows[i].cells[16];
-				battleSkillValue = battleSkillDiceElement.textContent.substr(0, battleSkillDiceElement.textContent.length - 2).concat("LH+").concat(battleSkillElement.textContent.substr(0, battleSkillElement.textContent.length - 1));
-				battleSkill = battleSkillValue.concat("　").concat(battleSkillNames[i]);
-				if (i != 0) {
-					battleSkill = battleSkill.concat("(高仇恨)\n").concat(battleSkillValue).concat("+2　").concat(battleSkillNames[i]).concat("(低仇恨)")
-				}
-
-				commands = commands.concat(battleSkill).concat('\n');
-			}
-
-			var skillNames = [["運動判定", "耐久判定"],
-			["解除判定", "操作判定"],
-			["知覺判定", "交涉判定"],
-			["知識判定", "解析判定"]];
-			let skillElement;
-			let skillDiceElement;
-			var skill;
-			for (i = 0; i < table.rows.length - 1; i++) {
-				skillElement = table.rows[i].cells[6];
-				skillDiceElement = table.rows[i].cells[8];
-				skill = skillDiceElement.textContent.substr(0, skillDiceElement.textContent.length - 2).concat("LH+").concat(skillElement.textContent.substr(0, skillElement.textContent.length - 1)).concat("　").concat(skillNames[i][0]);
-				commands = commands.concat(skill).concat('\n');
-
-				skillElement = table.rows[i].cells[10];
-				skillDiceElement = table.rows[i].cells[12];
-				skill = skillDiceElement.textContent.substr(0, skillDiceElement.textContent.length - 2).concat("LH+").concat(skillElement.textContent.substr(0, skillElement.textContent.length - 1)).concat("　").concat(skillNames[i][1]);
-				commands = commands.concat(skill).concat('\n');
-			}
-
-			commands = commands.concat("PCT{CR}　消耗表：體力\nECT{CR}　消耗表：氣力\nGCT{CR}　消耗表：物品\nCCT{CR}　消耗表：金錢\nCTRS{CR}　財寶表：金錢\nMTRS{CR}　財寶表：魔法素材\nITRS{CR}　財寶表：賣錢道具");*/
 
 			jsonData.data.commands = commands;
 		}
