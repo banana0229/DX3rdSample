@@ -3699,6 +3699,8 @@ function clipboardItemToTextareaClipboard(clipboardItem) {
 }
 
 async function downloadAsCcfolia() {
+  GetCcfoliaData();
+  return;
   const clipboardItem = getClipboardItem();
   if(navigator.clipboard && navigator.clipboard.write) { // FireFox は navigator.clipboard.write が使えない（2022/07/16 v.102.0.1）
     navigator.clipboard.write([clipboardItem]).then((ok)=>{
@@ -3766,14 +3768,31 @@ async function downloadAsFullSet(){
 }
 
 </script>
-  
+<script defer type="text/javascript" src="js/ccfoliaConverter.js"></script>
 </head>
 <body>
   <header>
     <h1><a href="./">“不確定的王牌”</a></h1>
+    <nav>
+      <ul>
+        <li class=""><a href="./">⏎</a>
+        <!--</li><li class=""><a onclick="chatPaletteOn()"><span>パレット</span></a>!-->
+        </li><li class=""><a onclick="downloadListOn()">輸出</a>
+      </ul>
+    </nav>
   </header>
   <div class="header-back-name">“不確定的王牌”</div>
-  
+  <aside id="downloadlist" class="float-box">
+    <h2>輸出</h2>
+    <ul>
+      <!--<li id="downloadlist-udonarium"><a onclick="downloadAsUdonarium();">ユドナリウム用コマデータ<small>(zip形式ファイル)</small></a>-->
+      </li><li id="downloadlist-ccfolia"><a onclick="downloadAsCcfolia();">ccfolia角色<small>(複製到剪貼簿)</small></a>
+      <!--</li><li id="downloadlist-text"><a onclick="downloadAsText();">テキスト形式</a>
+      </li><li id="downloadlist-json"><a onclick="downloadAsJson();">JSON 形式</a>
+      </li><li id="downloadlist-html"><a onclick="downloadAsHtml();">HTML 形式</a>
+      </li><li id="downloadlist-zipped"><a onclick="downloadAsFullSet();">ZIP 形式（上記全部入り）</a>-->
+    </ul>
+  </aside>
   
   
   
@@ -3787,7 +3806,10 @@ async function downloadAsFullSet(){
     
     <article >
       <div id="area-name" class="color-set">
-        <h1 id="character-name"><span id="aka">“<ruby>不確定的王牌<rp>(</rp><rt>WildCard</rt><rp>)</rp></ruby>”</span></h1>
+        <h1 id="character-name">
+          <span id="aka">“<ruby>不確定的王牌<rp>(</rp><rt>WildCard</rt><rp>)</rp></ruby>”</span>
+          <ruby><rp>(</rp><rt></rt><rp>)</rp></ruby>
+        </h1>
       </div>
       
       <div id="tags">
