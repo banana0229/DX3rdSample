@@ -292,28 +292,34 @@ function GetCcfoliaData() {
 				name = matches ? matches[1] : name;
 				jsonData.data.name = name;
 			}
-
 		}
 
 		/* 角色備註 memo */
-		{/*
-			let memoElement = document.getElementsByClassName('remarks')[0];
-			if (memoElement != null) {
-				var memo = memoElement.textContent;
-				jsonData.data.memo = memo;
+		{
+			let codeNameElement = document.getElementById("character-name").children[0].children[0];
+			if (codeNameElement != null) {
+				let codeName = codeNameElement.textContent;
+				let regex = /(.*)\((.*)\)/;
+				let matches = codeName.match(regex);
+				if(matches[1] !== "")
+				{
+					jsonData.data.memo = jsonData.data.memo + "代號：" + codeName;
+				}
 			}
-*/
+
+			let noteElement = document.getElementById("free-note").children[1]
+			if (noteElement != null) {
+				jsonData.data.memo = jsonData.data.memo + '\n' + noteElement.textContent;
+			}
 		}
 
 		/* 行動力 initiative */
-		{/*
-			var table = document.getElementsByClassName('nospace')[2];
-
-			let initiativeElement = table.rows[0].cells[1];
+		{
+			let initiativeElement = document.getElementById('initiative').children[1];
 			var init = parseInt(initiativeElement.textContent);
 			if (init != null) {
 				jsonData.data.initiative = init;
-			}*/
+			}
 		}
 
 		/* 參考網址 externalUrl */
@@ -323,12 +329,10 @@ function GetCcfoliaData() {
 
 		/* 變動屬性 status */
 		{
-/*			let statusArray = Array();
+			let statusArray = Array();
 
-			var table = document.getElementsByClassName('nospace')[1];
-
-			let HP_Element = table.rows[0].cells[0];
-			var MaxHp = parseInt(HP_Element.textContent.substr(6));
+			let HP_Element = document.getElementById('max-hp').children[1];
+			var MaxHp = parseInt(HP_Element.textContent);
 			if (MaxHp != null) {
 				let HP_status = {
 					"label": "HP",
@@ -338,55 +342,120 @@ function GetCcfoliaData() {
 
 				statusArray.push(HP_status);
 			}
-			let fatigueStatus = {
-				"label": "疲勞",
-				"value": 0,
-				"max": 0
-			};
-			statusArray.push(fatigueStatus);
+
+			let lifePathTable = document.getElementById('lifepath').children[1];
+			let erosionElement = lifePathTable.rows[10].cells[1];
+			let erosionRate = parseInt(erosionElement?.textContent);
+			
+			if (erosionRate != null) {
+				let erosionStatus = {
+					"label": "侵蝕",
+					"value": erosionRate,
+					"max": 0
+				};
+
+				statusArray.push(erosionStatus);
+			}
+
+			//Louis
+			let loisTable = document.getElementById('lois').children[1].children[1];
+			if (loisTable != null) {
+				let loisCount = 0;
+				let maxLoisCount = loisTable.rows.length;
+				for (i = 0; i < loisTable.rows.length; i++) {
+					let lois = loisTable.rows[i].children[0].innerText;
+					if(lois !== "")
+					{
+						loisCount++;
+					}
+					if(lois === "D露易絲" || lois === "Dロイス")
+					{
+						maxLoisCount--;
+					}
+				}
+				let loisStatus = {
+					"label": "露易絲",
+					"value": loisCount,
+					"max": maxLoisCount
+				};
+
+				statusArray.push(loisStatus);
+			}
+			
+			//財產
+			let savingElement = document.getElementById('saving').children[1];
+			var saving = parseInt(savingElement.textContent);
+			if (saving != null) {
+				let savingStatus = {
+					"label": "財產",
+					"value": saving,
+					"max": 0
+				};
+
+				statusArray.push(savingStatus);
+			}
 
 			jsonData.data.status = statusArray;
-*/
+
 		}
 
+		let abilityArray = Array();
+		let skillArray = Array();
 		/* 固定屬性 params */
 		{
-/*			let paramsArray = Array();
+			let paramsArray = Array();
 
-			var table = document.getElementsByClassName('nospace')[0];
-
-			let CR_Element = table.rows[0].cells[1];
-			var CR = CR_Element.textContent.substr(4);
-
-			let params = {
-				"label": "CR",
-				"value": CR
+			let statusBoxElement = document.getElementById('status');
+			
+			let erosionBonus = {
+				"label": "侵蝕率骰數修正",
+				"value": "0"
 			};
+			paramsArray.push(erosionBonus);
 
-			paramsArray.push(params);
+			let abilityRootElement = statusBoxElement.children[2].children[0].children[0];
 
-			table = document.getElementsByClassName('nospace')[2];
-
-			var abilityElement;
-			var abilityContent;
-			var abilityValue;
-			var abilityName = ["物防", "魔防"];
-
-			for (i = 0; i < abilityName.length; i++) {
-				abilityElement = table.rows[i + 2].cells[3];
-				abilityContent = abilityElement.textContent;
-				abilityValue = abilityContent.substr(0, abilityContent.length - 1);
+			for (i = 0; i+1 < abilityRootElement.children.length; i+=2) {
+				let abilityName = abilityRootElement.children[i].textContent;
+				let abilityValue = abilityRootElement.children[i+1].textContent;
 
 				let params = {
-					"label": abilityName[i],
+					"label": abilityName,
 					"value": abilityValue
 				};
 
 				paramsArray.push(params);
+			}
+			
+			let skillRootElement = statusBoxElement.children[2].children[1];
+			let fixedSkillRowCpunt = 2;
+			let skillRowLength = skillRootElement.firstChild.children.length;
+			
+			for (j = 0; j+1 < skillRowLength; j+=2) {
+				for (i = 0; i < skillRootElement.children.length; i++) {
+					let skillRowElement = skillRootElement.children[i];
 
+					let skillName = skillRowElement.children[j].textContent;
+					let skillValue = skillRowElement.children[j+1].textContent;
+
+					if(i < fixedSkillRowCpunt &&skillValue === "")
+					{
+						skillValue = "0";
+					}
+
+					if(skillValue !== "")
+					{
+						let params = {
+							"label": skillName,
+							"value": skillValue
+						};
+		
+						paramsArray.push(params);
+					}
+				}
 			}
 
-			jsonData.data.params = paramsArray;*/
+			jsonData.data.params = paramsArray;
 		}
 
 		/* 角色圖像 iconUrl */
