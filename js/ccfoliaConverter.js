@@ -400,7 +400,7 @@ function GetCcfoliaData() {
 		}
 
 		let abilityArray = Array();
-		let skillArray = Array();
+		let skill2DArray = Array();
 		/* 固定屬性 params */
 		{
 			let paramsArray = Array();
@@ -416,8 +416,8 @@ function GetCcfoliaData() {
 			let abilityRootElement = statusBoxElement.children[2].children[0].children[0];
 
 			for (i = 0; i+1 < abilityRootElement.children.length; i+=2) {
-				let abilityName = abilityRootElement.children[i].textContent;
-				let abilityValue = abilityRootElement.children[i+1].textContent;
+				let abilityName = abilityRootElement.children[i].innerText;
+				let abilityValue = abilityRootElement.children[i+1].innerText;
 
 				let params = {
 					"label": abilityName,
@@ -425,6 +425,9 @@ function GetCcfoliaData() {
 				};
 
 				paramsArray.push(params);
+
+				abilityArray.push(abilityName);
+				skill2DArray.push([]);
 			}
 			
 			let skillRootElement = statusBoxElement.children[2].children[1];
@@ -451,6 +454,7 @@ function GetCcfoliaData() {
 						};
 		
 						paramsArray.push(params);
+						skill2DArray[j/2].push(skillName);
 					}
 				}
 			}
@@ -519,7 +523,26 @@ function GetCcfoliaData() {
 		}
 
 		/* 常用對話表 commands */
-		{/*
+		{
+			var commands = "";
+			for (i = 0; i < abilityArray.length; i++)
+			{
+				let abilityName = abilityArray[i];
+
+				commands = commands.concat("({" + abilityName +"}" + "+{侵蝕率骰數修正}+0)DX(10-0)　【"+ abilityName + "】判定\n");
+			}
+
+			for (i = 0; i < abilityArray.length; i++)
+			{
+				let abilityName = abilityArray[i];
+				for (j = 0; j < skill2DArray[i].length; j++)
+				{
+					let skillName = skill2DArray[i][j];
+					
+					commands = commands.concat("({" + abilityName +"}" + "+{侵蝕率骰數修正}+0)DX(10-0)+{"+skillName+"}"+"　<"+ skillName + ">判定\n");
+				}
+			}
+		/*
 			var table = document.getElementsByClassName('nospace')[3];
 			var commands = "";
 
@@ -559,9 +582,9 @@ function GetCcfoliaData() {
 				commands = commands.concat(skill).concat('\n');
 			}
 
-			commands = commands.concat("PCT{CR}　消耗表：體力\nECT{CR}　消耗表：氣力\nGCT{CR}　消耗表：物品\nCCT{CR}　消耗表：金錢\nCTRS{CR}　財寶表：金錢\nMTRS{CR}　財寶表：魔法素材\nITRS{CR}　財寶表：賣錢道具");
+			commands = commands.concat("PCT{CR}　消耗表：體力\nECT{CR}　消耗表：氣力\nGCT{CR}　消耗表：物品\nCCT{CR}　消耗表：金錢\nCTRS{CR}　財寶表：金錢\nMTRS{CR}　財寶表：魔法素材\nITRS{CR}　財寶表：賣錢道具");*/
 
-			jsonData.data.commands = commands;*/
+			jsonData.data.commands = commands;
 		}
 
 		/* 持有者 owner ※空欄 */
