@@ -395,6 +395,13 @@ function GetCcfoliaData() {
 				statusArray.push(savingStatus);
 			}
 
+			let erosionBonus = {
+				"label": "侵蝕骰數修正",
+				"value": 0,
+				"max": 0
+			};
+			statusArray.push(erosionBonus);
+
 			jsonData.data.status = statusArray;
 
 		}
@@ -407,12 +414,6 @@ function GetCcfoliaData() {
 
 			let statusBoxElement = document.getElementById('status');
 			
-			let erosionBonus = {
-				"label": "侵蝕率骰數修正",
-				"value": "0"
-			};
-			paramsArray.push(erosionBonus);
-
 			let abilityRootElement = statusBoxElement.children[2].children[0].children[0];
 
 			for (i = 0; i+1 < abilityRootElement.children.length; i+=2) {
@@ -525,11 +526,19 @@ function GetCcfoliaData() {
 		/* 常用對話表 commands */
 		{
 			var commands = "";
+
+			/*數值增減指令*/
+			commands = commands.concat(":HP+0 @+HP\n");
+			commands = commands.concat(":HP-0 @-HP\n");
+			commands = commands.concat(":侵蝕+0 @+侵蝕\n");
+			commands = commands.concat(":侵蝕-0 @-侵蝕\n");
+			commands = commands.concat(":侵蝕骰數修正=0 @指定侵蝕骰數修正\n");
+
 			for (i = 0; i < abilityArray.length; i++)
 			{
 				let abilityName = abilityArray[i];
 
-				commands = commands.concat("({" + abilityName +"}" + "+{侵蝕率骰數修正}+0)DX(10-0)　【"+ abilityName + "】判定\n");
+				commands = commands.concat("({" + abilityName +"}" + "+{侵蝕骰數修正}+0)DX(10-0)　【"+ abilityName + "】判定\n");
 			}
 
 			for (i = 0; i < abilityArray.length; i++)
@@ -538,8 +547,8 @@ function GetCcfoliaData() {
 				for (j = 0; j < skill2DArray[i].length; j++)
 				{
 					let skillName = skill2DArray[i][j];
-					
-					commands = commands.concat("({" + abilityName +"}" + "+{侵蝕率骰數修正}+0)DX(10-0)+{"+skillName+"}"+"　<"+ skillName + ">判定\n");
+
+					commands = commands.concat("({" + abilityName +"}" + "+{侵蝕骰數修正}+0)DX(10-0)+{"+skillName+"}"+"　<"+ skillName + ">判定\n");
 				}
 			}
 		/*
