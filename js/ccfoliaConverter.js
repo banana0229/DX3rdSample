@@ -322,6 +322,9 @@ function GetCcfoliaData() {
 				}
 			}
 
+			commands = commands.concat("(0/10+1)D+{攻擊力}+0 @傷害骰=(命中判定的十位數+1)D+攻擊力+其它修正\n");
+			commands = commands.concat("C(0-{裝甲值}-0) @閃躲失敗傷害=HP傷害-裝甲值-其它修正\n");
+			commands = commands.concat("C(0-{裝甲值}-{格擋值}-0) @格擋傷害=HP傷害-裝甲值-格擋值-其它修正\n");
 			jsonData.data.commands = commands;
 		}
 
@@ -347,10 +350,4 @@ function copyToClipboard(text) {
 		alert("複製失敗，無法取得剪貼簿");
 	}
 	return;
-}
-
-function ConvertToBCDiceCommand(command) {
-	let diceRegex = /^((\d(\+\d+)*)\+)?((\d+)[d|D]6?)(\+((\d\+?)*\d))?$/;
-	let bcdiceCommand = command.replace(diceRegex, "$5LH+$2$6");
-	return bcdiceCommand;
 }
