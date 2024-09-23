@@ -1,6 +1,6 @@
 function GetCcfoliaData() {
 	/* 主流程 */
-	{
+	try {
 		let jsonData =
 		{
 			"kind": "character",
@@ -37,8 +37,7 @@ function GetCcfoliaData() {
 
 			if (codeNameElement != null) {
 				let matches = codeName.match(regex);
-				if(matches)
-				{
+				if (matches) {
 					codeName = matches[1];
 				}
 			}
@@ -47,8 +46,7 @@ function GetCcfoliaData() {
 			let name = nameElement.textContent;
 			if (nameElement != null) {
 				let matches = name.match(regex);
-				if(matches)
-				{
+				if (matches) {
 					name = matches[1];
 				}
 			}
@@ -62,8 +60,7 @@ function GetCcfoliaData() {
 				let codeName = codeNameElement.textContent;
 				let regex = /(.*)\((.*)\)/;
 				let matches = codeName.match(regex);
-				if(matches[1] !== "")
-				{
+				if (matches[1] !== "") {
 					jsonData.data.memo = jsonData.data.memo + "代號：" + codeName;
 				}
 			}
@@ -85,7 +82,9 @@ function GetCcfoliaData() {
 
 		/* 參考網址 externalUrl */
 		{
-			jsonData.data.externalUrl = window.document.location;
+			let url = window.document.location.href;
+			let regex = "^https:\/\/.*$"
+			jsonData.data.externalUrl = url.match(regex) ? url : null;
 		}
 
 		/* 變動屬性 status */
@@ -107,7 +106,7 @@ function GetCcfoliaData() {
 			let lifePathTable = document.getElementById('lifepath').children[1];
 			let erosionElement = lifePathTable.rows[10].cells[1];
 			let erosionRate = parseInt(erosionElement?.textContent);
-			
+
 			if (erosionRate != null) {
 				let erosionStatus = {
 					"label": "侵蝕",
@@ -125,12 +124,10 @@ function GetCcfoliaData() {
 				let maxLoisCount = loisTable.rows.length;
 				for (i = 0; i < loisTable.rows.length; i++) {
 					let lois = loisTable.rows[i].children[0].innerText;
-					if(lois !== "")
-					{
+					if (lois !== "") {
 						loisCount++;
 					}
-					if(lois === "D露易絲" || lois === "Dロイス")
-					{
+					if (lois === "D露易絲" || lois === "Dロイス") {
 						maxLoisCount--;
 					}
 				}
@@ -142,7 +139,7 @@ function GetCcfoliaData() {
 
 				statusArray.push(loisStatus);
 			}
-			
+
 			//財產
 			let savingElement = document.getElementById('saving').children[1];
 			var saving = parseInt(savingElement.textContent);
@@ -191,12 +188,12 @@ function GetCcfoliaData() {
 			});
 
 			let statusBoxElement = document.getElementById('status');
-			
+
 			let abilityRootElement = statusBoxElement.children[2].children[0].children[0];
 
-			for (i = 0; i+1 < abilityRootElement.children.length; i+=2) {
+			for (i = 0; i + 1 < abilityRootElement.children.length; i += 2) {
 				let abilityName = abilityRootElement.children[i].innerText;
-				let abilityValue = abilityRootElement.children[i+1].innerText;
+				let abilityValue = abilityRootElement.children[i + 1].innerText;
 
 				let params = {
 					"label": abilityName,
@@ -208,32 +205,30 @@ function GetCcfoliaData() {
 				abilityArray.push(abilityName);
 				skill2DArray.push([]);
 			}
-			
+
 			let skillRootElement = statusBoxElement.children[2].children[1];
 			let fixedSkillRowCpunt = 2;
 			let skillRowLength = skillRootElement.firstChild.children.length;
-			
-			for (j = 0; j+1 < skillRowLength; j+=2) {
+
+			for (j = 0; j + 1 < skillRowLength; j += 2) {
 				for (i = 0; i < skillRootElement.children.length; i++) {
 					let skillRowElement = skillRootElement.children[i];
 
 					let skillName = skillRowElement.children[j].textContent;
-					let skillValue = skillRowElement.children[j+1].textContent;
+					let skillValue = skillRowElement.children[j + 1].textContent;
 
-					if(i < fixedSkillRowCpunt &&skillValue === "")
-					{
+					if (i < fixedSkillRowCpunt && skillValue === "") {
 						skillValue = "0";
 					}
 
-					if(skillValue !== "")
-					{
+					if (skillValue !== "") {
 						let params = {
 							"label": skillName,
 							"value": skillValue
 						};
-		
+
 						paramsArray.push(params);
-						skill2DArray[j/2].push(skillName);
+						skill2DArray[j / 2].push(skillName);
 					}
 				}
 			}
@@ -312,18 +307,15 @@ function GetCcfoliaData() {
 			commands = commands.concat(":侵蝕-0 @-侵蝕\n");
 			commands = commands.concat(":侵蝕骰數修正=0 @指定侵蝕骰數修正\n");
 
-			for (i = 0; i < abilityArray.length; i++)
-			{
+			for (i = 0; i < abilityArray.length; i++) {
 				let abilityName = abilityArray[i];
 
 				commands = commands.concat(`({${abilityName}}+{侵蝕骰數修正}+0)DX(10-0)　【${abilityName}】判定\n`);
 			}
 
-			for (i = 0; i < abilityArray.length; i++)
-			{
+			for (i = 0; i < abilityArray.length; i++) {
 				let abilityName = abilityArray[i];
-				for (j = 0; j < skill2DArray[i].length; j++)
-				{
+				for (j = 0; j < skill2DArray[i].length; j++) {
 					let skillName = skill2DArray[i][j];
 
 					commands = commands.concat(`({${abilityName}}+{侵蝕骰數修正}+0)DX(10-0)+{${skillName}}　<${skillName}>判定\n`);
@@ -340,6 +332,8 @@ function GetCcfoliaData() {
 
 		let jsonText = JSON.stringify(jsonData);
 		copyToClipboard(jsonText);
+	} catch (error) {
+		alert("複製失敗");
 	}
 };
 /* 將輸入的字串複製到剪貼簿上的函式 */
