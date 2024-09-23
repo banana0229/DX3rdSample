@@ -316,7 +316,7 @@ function GetCcfoliaData() {
 			{
 				let abilityName = abilityArray[i];
 
-				commands = commands.concat("({" + abilityName +"}" + "+{侵蝕骰數修正}+0)DX(10-0)　【"+ abilityName + "】判定\n");
+				commands = commands.concat(`({${abilityName}}+{侵蝕骰數修正}+0)DX(10-0)　【${abilityName}】判定\n`);
 			}
 
 			for (i = 0; i < abilityArray.length; i++)
@@ -326,7 +326,7 @@ function GetCcfoliaData() {
 				{
 					let skillName = skill2DArray[i][j];
 
-					commands = commands.concat("({" + abilityName +"}" + "+{侵蝕骰數修正}+0)DX(10-0)+{"+skillName+"}"+"　<"+ skillName + ">判定\n");
+					commands = commands.concat(`({${abilityName}}+{侵蝕骰數修正}+0)DX(10-0)+{${skillName}}　<${skillName}>判定\n`);
 				}
 			}
 
