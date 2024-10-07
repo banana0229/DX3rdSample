@@ -64,9 +64,20 @@ function GetCcfoliaData() {
 					jsonData.data.memo = jsonData.data.memo + "代號：" + codeName;
 				}
 			}
+			let syndromeElements = document.getElementById("syndrome")?.querySelectorAll("dd");
+			if (syndromeElements != null) {
+				let completeSyndromeName;
+				for (i = 0; i < syndromeElements.length; i++) {
+					let syndromeName = syndromeElements[i].innerText;
+					if (syndromeName) {
+						completeSyndromeName = completeSyndromeName ? `${completeSyndromeName}、${syndromeName}` : syndromeName;
+					}
+				}
+				jsonData.data.memo = jsonData.data.memo + '\n' + completeSyndromeName;
+			}
 
 			let noteElement = document.getElementById("free-note").children[1]
-			if (noteElement != null) {
+			if (noteElement != null && noteElement.textContent) {
 				jsonData.data.memo = jsonData.data.memo + '\n' + noteElement.textContent;
 			}
 		}
@@ -169,7 +180,11 @@ function GetCcfoliaData() {
 		/* 固定屬性 params */
 		{
 			let paramsArray = Array();
-
+			/*
+			let tables = document.getElementsByClassName("data-table");
+			for (i = 0; i < tables.length; i++) {
+				console.log(tables[i]);
+			}*/
 			paramsArray.push({
 				"label": "攻擊力",
 				"value": "0"
