@@ -123,7 +123,18 @@ form#form-search {
     }
   }
 }
-
+summary {
+  margin: 1.5rem 0 1rem;
+  font-size: 1.25em;
+}
+summary h2 {
+  display: inline;
+  font-size: 2rem;
+  & small {
+    font-size: 1.4rem;
+    font-weight: normal;
+  }
+}
 /* // List
 ---------------------------------------------------------------------------------------------------- */
 .list {
