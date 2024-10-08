@@ -346,6 +346,7 @@ function GetCcfoliaData() {
 			commands = commands.concat(":HP-0 @-HP\n");
 			commands = commands.concat(":侵蝕+0 @+侵蝕\n");
 			commands = commands.concat(":侵蝕-0 @-侵蝕\n");
+			commands = commands.concat(":財產-0 @-財產\n");
 			commands = commands.concat(":侵蝕骰數修正=0 @指定侵蝕骰數修正\n");
 
 			for (i = 0; i < abilityArray.length; i++) {
