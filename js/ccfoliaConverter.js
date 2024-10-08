@@ -180,26 +180,52 @@ function GetCcfoliaData() {
 		/* 固定屬性 params */
 		{
 			let paramsArray = Array();
-			/*
+
+			let atk = 0;
+			let guard = 0;
+			let def = 0;
+			let avoid = 0;
 			let tables = document.getElementsByClassName("data-table");
 			for (i = 0; i < tables.length; i++) {
-				console.log(tables[i]);
-			}*/
+				let boxType = tables[i]?.firstChild?.nextSibling?.firstChild?.nextSibling?.firstChild?.textContent;
+				if (boxType === "武器") {
+					var weapon = tables[i]?.firstChild?.nextSibling?.nextSibling?.nextSibling?.firstChild.nextSibling;
+					if (weapon) {
+						//atk = parseInt(weapon?.lastChild?.previousSibling?.previousSibling?.previousSibling?.innerText, 10);
+						//atk = Number.isNaN(atk) ? 0 : atk;
+
+						guard = parseInt(weapon?.lastChild?.previousSibling?.previousSibling?.innerText, 10);
+						guard = Number.isNaN(guard) ? 0 : guard;
+					}
+				}
+				else if (boxType === "防具") {
+					var armors = tables[i]?.firstChild?.nextSibling?.nextSibling?.nextSibling?.childNodes;
+					if (armors) {
+						for (j = 0; j < armors.length; j++) {
+							let local_def = parseInt(armors[j]?.lastChild?.previousSibling?.innerText, 10);
+							def += Number.isNaN(local_def) ? 0 : local_def;
+							
+							let local_avoid = parseInt(armors[j]?.lastChild?.previousSibling?.previousSibling?.innerText, 10);
+							avoid += Number.isNaN(local_avoid) ? 0 : local_avoid;
+						}
+					}
+				}
+			}
 			paramsArray.push({
 				"label": "攻擊力",
-				"value": "0"
+				"value": atk.toString()
 			});
 			paramsArray.push({
 				"label": "格擋值",
-				"value": "0"
+				"value": guard.toString()
 			});
 			paramsArray.push({
 				"label": "裝甲值",
-				"value": "0"
+				"value": def.toString()
 			});
 			paramsArray.push({
 				"label": "閃躲",
-				"value": "0"
+				"value": avoid.toString()
 			});
 
 			let statusBoxElement = document.getElementById('status');
@@ -358,7 +384,7 @@ function GetCcfoliaData() {
 function copyToClipboard(text) {
 	if (navigator.clipboard) {
 		navigator.clipboard.writeText(text).then(function () {
-			alert("角色資料已複製到剪貼簿上。");
+			alert("角色資料已複製到剪貼簿上。\n攻擊力無自動計算，請根據狀況手動修改。\n格擋值為第一個武器的格檔值。\n裝甲值、閃躲為所有防具加總。");
 		});
 	}
 	else {
