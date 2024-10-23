@@ -149,6 +149,14 @@ function GetCcfoliaData() {
 				};
 
 				statusArray.push(loisStatus);
+
+				let titusStatus = {
+					"label": "泰特斯",
+					"value": 0,
+					"max": 0
+				};
+
+				statusArray.push(titusStatus);
 			}
 
 			//財產
@@ -204,7 +212,7 @@ function GetCcfoliaData() {
 						for (j = 0; j < armors.length; j++) {
 							let local_def = parseInt(armors[j]?.lastChild?.previousSibling?.innerText, 10);
 							def += Number.isNaN(local_def) ? 0 : local_def;
-							
+
 							let local_avoid = parseInt(armors[j]?.lastChild?.previousSibling?.previousSibling?.innerText, 10);
 							avoid += Number.isNaN(local_avoid) ? 0 : local_avoid;
 						}
