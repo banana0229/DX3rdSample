@@ -1,6 +1,11 @@
 function GetCcfoliaData() {
 	/* 主流程 */
 	try {
+		convert2zh();	
+	} catch (error) {
+		alert("中文格式轉換失敗");
+	}
+	try {
 		let jsonData =
 		{
 			"kind": "character",
@@ -400,4 +405,43 @@ function copyToClipboard(text) {
 		alert("複製失敗，無法取得剪貼簿");
 	}
 	return;
+}
+function convert2zh() {
+	let zhDict = {
+		"肉体": "肉體",
+		"感覚": "感覺",
+		"社会": "社會",
+		"白兵": "近戰",
+		/*"回避": "回避",*/
+		"射撃": "射擊",
+		"知覚": "知覺",
+		/*"ＲＣ": "ＲＣ",*/
+		"交渉": "交涉",
+		"調達": "籌備"
+	};
+	let statusBoxElement = document.getElementById('status');
+
+	let abilityRootElement = statusBoxElement.children[2].children[0].children[0];
+
+	for (i = 0; i + 1 < abilityRootElement.children.length; i += 2) {
+		let abilityName = abilityRootElement.children[i].innerText;
+		if (abilityName in zhDict) {
+			abilityRootElement.children[i].innerText = zhDict[abilityName];
+		}
+	}
+
+	let skillRootElement = statusBoxElement.children[2].children[1];
+
+	let skillRowLength = skillRootElement.firstChild.children.length;
+
+	for (j = 0; j + 1 < skillRowLength; j += 2) {
+		for (i = 0; i < skillRootElement.children.length; i++) {
+			let skillRowElement = skillRootElement.children[i];
+
+			let skillName = skillRowElement.children[j].textContent;
+			if (skillName in zhDict) {
+				skillRowElement.children[j].textContent = zhDict[skillName];
+			}
+		}
+	}
 }
