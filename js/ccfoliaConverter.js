@@ -76,7 +76,7 @@ function GetCcfoliaData() {
 				jsonData.data.memo = jsonData.data.memo + '\n' + completeSyndromeName;
 			}
 
-			let noteElement = document.getElementById("free-note").children[1]
+			let noteElement = document.getElementById("free-note").children[1];
 			if (noteElement != null && noteElement.textContent) {
 				jsonData.data.memo = jsonData.data.memo + '\n' + noteElement.textContent;
 			}
@@ -94,7 +94,7 @@ function GetCcfoliaData() {
 		/* 參考網址 externalUrl */
 		{
 			let url = window.document.location.href;
-			let regex = "^https:\/\/.*$"
+			let regex = "^https:\/\/.*$";
 			jsonData.data.externalUrl = url.match(regex) ? url : null;
 		}
 
@@ -128,7 +128,7 @@ function GetCcfoliaData() {
 				statusArray.push(erosionStatus);
 			}
 
-			//Louis
+			/*Louis*/
 			let loisTable = document.getElementById('lois').children[1].children[1];
 			if (loisTable != null) {
 				let loisCount = 0;
@@ -159,7 +159,7 @@ function GetCcfoliaData() {
 				statusArray.push(titusStatus);
 			}
 
-			//財產
+			/*財產*/
 			let savingElement = document.getElementById('saving').children[1];
 			var saving = parseInt(savingElement.textContent);
 			if (saving != null) {
@@ -199,8 +199,8 @@ function GetCcfoliaData() {
 				if (boxType === "武器") {
 					var weapon = tables[i]?.firstChild?.nextSibling?.nextSibling?.nextSibling?.firstChild.nextSibling;
 					if (weapon) {
-						//atk = parseInt(weapon?.lastChild?.previousSibling?.previousSibling?.previousSibling?.innerText, 10);
-						//atk = Number.isNaN(atk) ? 0 : atk;
+						/*atk = parseInt(weapon?.lastChild?.previousSibling?.previousSibling?.previousSibling?.innerText, 10);*/
+						/*atk = Number.isNaN(atk) ? 0 : atk;*/
 
 						guard = parseInt(weapon?.lastChild?.previousSibling?.previousSibling?.innerText, 10);
 						guard = Number.isNaN(guard) ? 0 : guard;
