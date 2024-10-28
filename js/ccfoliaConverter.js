@@ -36,7 +36,7 @@ function GetCcfoliaData() {
 
 		/* 名稱 name */
 		{
-			let codeNameElement = document.getElementById("character-name")?.children[0]?.children[0];
+			let codeNameElement = document.getElementById("character-name")?.children[0]?.children[0] || document.getElementById("character-name")?.children[0];
 			let codeName = codeNameElement?.textContent;
 			let regex = /(.*)\((.*)\)/;
 
@@ -47,7 +47,7 @@ function GetCcfoliaData() {
 				}
 			}
 
-			let nameElement = document.getElementById("character-name")?.children[1];
+			let nameElement = document.getElementById("character-name")?.children[1] || document.getElementById("character-name").childNodes[1];
 			let name = nameElement?.textContent;
 			if (nameElement != null) {
 				let matches = name.match(regex);
@@ -60,14 +60,14 @@ function GetCcfoliaData() {
 
 		/* 角色備註 memo */
 		{
-			let codeNameElement = document.getElementById("character-name").children[0].children[0];
+			let codeNameElement = document.getElementById("character-name")?.children[0]?.children[0] || document.getElementById("character-name")?.children[0];
 			if (codeNameElement != null) {
 				let codeName = codeNameElement.textContent;
-				let regex = /(.*)\((.*)\)/;
-				let matches = codeName.match(regex);
-				if (matches[1] !== "") {
-					jsonData.data.memo = jsonData.data.memo + "代號：" + codeName;
+				if(codeName[0] === '“')
+				{
+					codeName = codeName.slice(1, -1);
 				}
+				jsonData.data.memo = jsonData.data.memo + "代號：" + codeName;
 			}
 			let syndromeElements = document.getElementById("syndrome")?.querySelectorAll("dd");
 			if (syndromeElements != null) {
