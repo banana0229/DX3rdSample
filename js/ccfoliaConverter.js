@@ -31,8 +31,8 @@ function GetCcfoliaData() {
 
 		/* 名稱 name */
 		{
-			let codeNameElement = document.getElementById("character-name").children[0].children[0];
-			let codeName = codeNameElement.textContent;
+			let codeNameElement = document.getElementById("character-name")?.children[0]?.children[0];
+			let codeName = codeNameElement?.textContent;
 			let regex = /(.*)\((.*)\)/;
 
 			if (codeNameElement != null) {
@@ -42,8 +42,8 @@ function GetCcfoliaData() {
 				}
 			}
 
-			let nameElement = document.getElementById("character-name").children[1];
-			let name = nameElement.textContent;
+			let nameElement = document.getElementById("character-name")?.children[1];
+			let name = nameElement?.textContent;
 			if (nameElement != null) {
 				let matches = name.match(regex);
 				if (matches) {
