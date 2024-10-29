@@ -120,7 +120,8 @@ function GetCcfoliaData() {
 			}
 
 			let lifePathTable = document.getElementById('lifepath').children[1];
-			let erosionElement = lifePathTable.rows[10].cells[1];
+			let lastTbody = lifePathTable.children[lifePathTable.children.length - 1];
+			let erosionElement = lastTbody.children[lastTbody.children.length - 1].cells[1];
 			let erosionRate = parseInt(erosionElement?.textContent);
 
 			if (erosionRate != null) {
