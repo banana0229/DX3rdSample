@@ -355,11 +355,13 @@ function GetCcfoliaData() {
 		{
 			var commands = "";
 
+			commands = commands.concat("1D 登場侵蝕\n");
+
 			/*數值增減指令*/
-			commands = commands.concat(":HP+0 @+HP\n");
-			commands = commands.concat(":HP-0 @-HP\n");
 			commands = commands.concat(":侵蝕+0 @+侵蝕\n");
 			commands = commands.concat(":侵蝕-0 @-侵蝕\n");
+			commands = commands.concat(":HP+0 @+HP\n");
+			commands = commands.concat(":HP-0 @-HP\n");
 			commands = commands.concat(":財產-0 @-財產\n");
 			commands = commands.concat(":侵蝕骰數修正=0 @指定侵蝕骰數修正\n");
 
