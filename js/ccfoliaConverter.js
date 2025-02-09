@@ -141,11 +141,12 @@ function GetCcfoliaData() {
 				let maxLoisCount = loisTable.rows.length;
 				for (i = 0; i < loisTable.rows.length; i++) {
 					let lois = loisTable.rows[i].children[0].innerText;
-					if (lois !== "") {
-						loisCount++;
-					}
-					if (lois === "D露易絲" || lois === "Dロイス") {
+					let isDLois = lois === "D露易絲" || lois === "Dロイス";
+					if (isDLois) {
 						maxLoisCount--;
+					}
+					else if (lois !== "") {
+						loisCount++;
 					}
 				}
 				let loisStatus = {
@@ -418,7 +419,7 @@ function convert2zh() {
 		/*"回避": "回避",*/
 		"射撃": "射擊",
 		"知覚": "知覺",
-		/*"ＲＣ": "ＲＣ",*/
+		"ＲＣ": "RC",
 		"交渉": "交涉",
 		"調達": "籌備"
 	};
