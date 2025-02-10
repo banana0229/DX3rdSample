@@ -4334,7 +4334,7 @@ async function downloadAsFullSet(){
                 
                 <th>道具
                 <th>回憶
-                <th>使用総計
+                <th>總計使用
                 <th>未使用／合計
             <tbody>
               <tr>
@@ -4355,7 +4355,7 @@ async function downloadAsFullSet(){
           <summary>侵蝕率效果表</summary>
           <p>
             現在侵蝕率:<input type="number" id="current-encroach" value="35" oninput="encroachBonusSet(this.value);">
-            <input type="checkbox" id="encroach-ea-on" oninput="encroachBonusType();" ><label for="encroach-ea-on">エフェクトアーカイブ</label>
+            <input type="checkbox" id="encroach-ea-on" checked oninput="encroachBonusType();" ><label for="encroach-ea-on">エフェクトアーカイブ</label>
             <input type="checkbox" id="encroach-or-on" oninput="encroachBonusType();" ><label for="encroach-or-on">起源種</label>
           </p>
           <table class="data-table" id="enc-table">
