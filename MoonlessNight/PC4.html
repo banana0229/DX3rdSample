@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="night">
 
 <head>
   <meta charset="UTF-8">
@@ -2899,9 +2899,9 @@ body {
     &:nth-child(4) { width: 8.4em; } /* タイミング */
     &:nth-child(5) { width: 7.0em; } /* 技能 */
     &:nth-child(6) { width: 3.8em; } /* 難易度 */
-    &:nth-child(7) { width: 5.8em; } /* 対象 */
+    &:nth-child(7) { width: 5.8em; } /* 對象 */
     &:nth-child(8) { width: 4.8em; } /* 射程 */
-    &:nth-child(9) { width: 3.4em; } /* 侵蝕値 */
+    &:nth-child(9) { width: 3.4em; } /* 侵蝕值 */
     &:nth-child(10){ width: 4.9em; } /* 制限 */
   }
 }
@@ -2917,9 +2917,9 @@ body {
   &:nth-child(4) { font-size: 90%; } /* タイミング */
   &:nth-child(5) { font-size: 90%; } /* 技能 */
   &:nth-child(6) { font-size: 90%; } /* 難易度 */
-  &:nth-child(7) { font-size: 90%; } /* 対象 */
+  &:nth-child(7) { font-size: 90%; } /* 對象 */
   &:nth-child(8) { font-size: 90%; } /* 射程 */
-  &:nth-child(9) {  } /* 侵蝕値 */
+  &:nth-child(9) {  } /* 侵蝕值 */
   &:nth-child(10){ font-size: 90%; } /* 制限 */
 }
 
@@ -3084,8 +3084,8 @@ body {
     .name { width:  16em; } /* 名称 */
     .type { width: 4.5em; } /* 種別 */
     .exp  { width: 3.5em; } /* 経験点 */
-    .act  { width: 5.5em; } /* 発動値 */
-    .enc  { width: 3.4em; } /* 侵蝕値 */
+    .act  { width: 5.5em; } /* 発動值 */
+    .enc  { width: 3.4em; } /* 侵蝕值 */
     .note { width:  auto; } /* 効果 */
   }
   > thead th {
@@ -3353,8 +3353,8 @@ body {
   &:nth-child(4) { width: 5.5em; } /* 種別 */
   &:nth-child(5) { width: 5.9em; } /* 技能 */
   &:nth-child(6) { width: 3.4em; } /* 命中  ／ドッジ */
-  &:nth-child(7) { width: 3.9em; } /* 攻撃力／行動 */
-  &:nth-child(8) { width: 3.4em; } /* ガード／装甲値 */
+  &:nth-child(7) { width: 3.9em; } /* 攻擊力／行動 */
+  &:nth-child(8) { width: 3.4em; } /* ガード／装甲值 */
   &:nth-child(9) { width: 3.4em; } /* 射程 */
   &:last-child   { width: auto; text-align: left; padding-left: 1em; } /* 解説 */
 }
@@ -3389,8 +3389,8 @@ body {
     &:nth-child(4) { width: 5.5em; } /* 種別 */
     &:nth-child(5) { width: 5.9em; } /* 技能 */
     &:nth-child(6) { width: 3.4em; } /* 命中  ／ドッジ */
-    &:nth-child(7) { width: 3.4em; } /* 攻撃力／行動 */
-    &:nth-child(8) { width: 3.4em; } /* ガード／装甲値 */
+    &:nth-child(7) { width: 3.4em; } /* 攻擊力／行動 */
+    &:nth-child(8) { width: 3.4em; } /* ガード／装甲值 */
     &:nth-child(9) { width: 3.4em; } /* 射程 */
     &:last-child   { width: auto; } /* 解説 */
   }
@@ -3872,7 +3872,7 @@ async function downloadAsFullSet(){
 }
 
 </script>
-  
+<script defer type="text/javascript" src="../js/ccfoliaConverter.js"></script>
 </head>
 <body>
   <header>
@@ -3885,7 +3885,17 @@ async function downloadAsFullSet(){
     </nav>
   </header>
   <div class="header-back-name">九十九真夜</div>
-  
+  <aside id="downloadlist" class="float-box">
+    <h2>輸出</h2>
+    <ul>
+      <!--<li id="downloadlist-udonarium"><a onclick="downloadAsUdonarium();">ユドナリウム用コマデータ<small>(zip形式ファイル)</small></a>-->
+      </li><li id="downloadlist-ccfolia"><a onclick="downloadAsCcfolia();">ccfolia角色<small>(複製到剪貼簿)</small></a>
+      <!--</li><li id="downloadlist-text"><a onclick="downloadAsText();">テキスト形式</a>
+      </li><li id="downloadlist-json"><a onclick="downloadAsJson();">JSON 形式</a>
+      </li><li id="downloadlist-html"><a onclick="downloadAsHtml();">HTML 形式</a>
+      </li><li id="downloadlist-zipped"><a onclick="downloadAsFullSet();">ZIP 形式（上記全部入り）</a>-->
+    </ul>
+  </aside>
   
   
   
@@ -3902,14 +3912,11 @@ async function downloadAsFullSet(){
         <h1 id="character-name"><span id="aka">“奇蹟之聲”</span>九十九真夜</h1>
         <div>
         <p id="update-time"><time>2025-02-08 15:32</time></p>
-        <p id="player-name">プレイヤー：坎德</p>
+        <p id="player-name">玩家：坎德</p>
         </div>
       </div>
       
-      <div id="tags">
-        <a id="group" href="./?group=pc">自由登録</a>
-        
-        
+      <div id="tags"> 
       </div>
       <div class="column column-status"><!-- COLUMN -->
       <div id="area-status">
@@ -3921,50 +3928,50 @@ async function downloadAsFullSet(){
         
 
         <div id="personal" class="box-union">
-          <dl class="box"><dt>年齢<dd>２４</dl>
+          <dl class="box"><dt>年齡<dd>２４</dl>
           <dl class="box"><dt>性別<dd>女</dl>
           <dl class="box"><dt>星座<dd>處女座</dl>
-          <dl class="box"><dt>身長<dd>１６４</dl>
-          <dl class="box"><dt>体重<dd>５１</dl>
-          <dl class="box"><dt>血液型<dd>Ａ</dl>
+          <dl class="box"><dt>身高<dd>１６４</dl>
+          <dl class="box"><dt>體重<dd>５１</dl>
+          <dl class="box"><dt>血型<dd>Ａ</dl>
         </div>
         <div id="works-cover" class="box-union">
-          <dl class="box"><dt>ワークス<dd>UGN特工D</dl>
-          <dl class="box"><dt>カヴァー<dd>教師</dl>
+          <dl class="box"><dt>真身<dd>UGN特工D</dl>
+          <dl class="box"><dt>表面<dd>教師</dl>
         </div>
 
         <div id="renegade" class="box-union">
           <dl class="box" id="breed">
-            <dt>ブリード<dd>トライ<span class="shorten">ブリード</span>
+            <dt>血統<dd>三種混合種
           </dl>
           <dl class="box" id="syndrome">
-            <dt>シンドローム
-            <dd>オルクス
-            <dd>ノイマン
-            <dt>オプショナル
-            <dd>ソラリス
+            <dt>症候群
+            <dd>冥府領域
+            <dd>神腦演算
+            <dt>隱性症候群
+            <dd>幻象投影
           </dl>
         </div>
 
         <div id="sub-status" class="box-union">
           <dl class="box" id="max-hp">
-            <dt>HP最大値
+            <dt>最大HP
             <dd><b>26</b>
           </dl>
           <dl class="box" id="stock-pt">
-            <dt>常備化<span class="shorten">ポイント</span>
+            <dt>常備化<span class="shorten">點數</span>
             <dd><b>16</b>
           </dl>
           <dl class="box" id="saving">
-            <dt>財産<span class="shorten">ポイント</span>
+            <dt>財產<span class="shorten">點數</span>
             <dd><b>3</b>
           </dl>
           <dl class="box" id="initiative">
-            <dt>行動値
+            <dt>行動值
             <dd><b>6</b>
           </dl>
           <dl class="box" id="move">
-            <dt>戦闘移動
+            <dt>戰鬥移動
             <dd><b>11</b>
           </dl>
           <dl class="box" id="dash">
@@ -3975,27 +3982,27 @@ async function downloadAsFullSet(){
         </div>
         
         <section class="box" id="exp">
-        <h2>経験点</h2>
+        <h2>經驗值</h2>
         <dl>
           <dt>消費<dd>+10
-          <dt>未使用<dd>-4
+          <dt>未使用<dd>0
         </dl>
-        <div class="create-type">フルスクラッチ<span class="nowrap shorten">作成</span></div>
+        <div class="create-type">完全描繪<span class="nowrap shorten">創建</span></div>
         </section>
         
         <section class="box" id="lifepath">
-          <h2>ライフパス</h2>
+          <h2>經歷</h2>
           <table class="data-table line-tbody">
             <colgroup><col><col><col></colgroup>
             <tbody>
               <tr>
-                <th class="left" colspan="2">出自
+                <th class="left" colspan="2">出身
                 <td rowspan="2" class="comment">出身於普通的小康之家的獨生女，父親是上班族，母親是家庭主婦，享受著「普通的」生活，然而儘管理性上知道自己過得還算幸福，但真夜經常懷疑自己是否真的活著，懷疑過著這種「意義不明」的生活的自己，究竟有什麼價值。小說、漫畫或遊戲中性格強烈、過著高潮迭起人生的腳色，雖然能給她些許刺激，但也更讓她意識到「現實和幻想」的隔閡，以及自己多麼空虛，這種情況一直持續到她十七歲那年－－
               <tr>
                 <td colspan="2">安定的家族</td>
             <tbody>
               <tr>
-                <th class="left" colspan="2">経験
+                <th class="left" colspan="2">經驗
                 <td rowspan="2" class="comment">六年前在一起超越者事件中曾經死亡，因為霧谷雄吾使用能力而復活，並覺醒成超越者。對真夜來說霧谷雄吾不只救了她的生命，也給了她新的人生－－她終於跨出「日常」，並找到能投入熱情的目標。
               <tr>
                 <td colspan="2">死而復生</td>
@@ -4007,8 +4014,8 @@ async function downloadAsFullSet(){
                 <td colspan="2">同志</td>
             <tbody>
               <tr>
-                <th class="left">覚醒
-                <th class="small">侵蝕値
+                <th class="left">覺醒
+                <th class="small">侵蝕值
                 <td rowspan="2" class="comment">你的力量是因為「某個人」所引出的，你在看到那個人眼神的時候就感覺到了。到底他是為了什麼原因理由而賦予你這份力量呢？
               <tr>
                 <td>感染
@@ -4016,7 +4023,7 @@ async function downloadAsFullSet(){
             <tbody>
               <tr>
                 <th class="left">衝動
-                <th class="small">侵蝕値
+                <th class="small">侵蝕值
                 <td rowspan="2" class="comment">理由算什麼，「因為我想做」難道還不夠嗎？啊，我終於「活著」了。
               <tr>
                 <td >解放</td>
@@ -4024,60 +4031,60 @@ async function downloadAsFullSet(){
               
             
             <tbody>
-              <tr><th class="right">侵蝕率基本値<td class="center bold">32<td>
+              <tr><th class="right">侵蝕率基本值<td class="center bold">32<td>
             </tbody>
           </table>
         </section>
       </div>
 
       <section class="box" id="status">
-        <h2>能力値</h2>
-        <button class="open-button" onclick="switchStatusBreakdown();" data-open="" data-text-open="能力値内訳を表示" data-text-close="能力値内訳を畳む"></button>
+        <h2>能力值</h2>
+        <button class="open-button" onclick="switchStatusBreakdown();" data-open="" data-text-open="詳細顯示" data-text-close="簡略顯示"></button>
         <table>
           <thead>
           <tr>
-            <th>肉体<td data-edb>1
-            <th>感覚<td data-edb>1
+            <th>肉體<td data-edb>1
+            <th>感覺<td data-edb>1
             <th>精神<td data-edb>4
-            <th>社会<td data-edb>4
+            <th>社會<td data-edb>4
           
             <tr class="breakdown">
-              <th>シンドローム<td>0＋0
-              <th>シンドローム<td>1＋0
-              <th>シンドローム<td>1＋3
-              <th>シンドローム<td>2＋1
+              <th>症候群<td>0＋0
+              <th>症候群<td>1＋0
+              <th>症候群<td>1＋3
+              <th>症候群<td>2＋1
             <tr class="breakdown">
-              <th>ワークス<td>
-              <th>ワークス<td>
-              <th>ワークス<td>
-              <th>ワークス<td>1
+              <th>真身<td>
+              <th>真身<td>
+              <th>真身<td>
+              <th>真身<td>1
             <tr class="breakdown">
               <th>成長<td>1
               <th>成長<td>
               <th>成長<td>0
               <th>成長<td>0
             <tr class="breakdown">
-              <th>その他修正<td>
-              <th>その他修正<td>
-              <th>その他修正<td>
-              <th>その他修正<td>
+              <th>其他修正<td>
+              <th>其他修正<td>
+              <th>其他修正<td>
+              <th>其他修正<td>
             </tr>
         
           </thead>
           <tr>
-            <td class="left">白兵<td class="right"></td>
-            <td class="left">射撃<td class="right"></td>
+            <td class="left">近戰<td class="right"></td>
+            <td class="left">射擊<td class="right"></td>
             <td class="left">ＲＣ<td class="right">1</td>
-            <td class="left">交渉<td class="right">5</td>
+            <td class="left">交涉<td class="right">5</td>
           <tr>
             <td class="left">回避<td class="right"></td>
-            <td class="left">知覚<td class="right">1</td>
+            <td class="left">知覺<td class="right">1</td>
             <td class="left">意志<td class="right"></td>
-            <td class="left">調達<td class="right">4</td>
+            <td class="left">籌備<td class="right">4</td>
           <tr>
             <td class="left"><td class="right"></td>
             <td class="left"><td class="right"></td>
-            <td class="left">知識:医療<td class="right">1</td>
+            <td class="left">知識:醫療<td class="right">1</td>
             <td class="left">情報：UGN<td class="right">1</td>
           
         </table>
@@ -4106,50 +4113,50 @@ async function downloadAsFullSet(){
           </colgroup>
           <thead>
             <tr>
-              <th>関係
-              <th>名前
+              <th>關係
+              <th>名字
               <th colspan="3">感情<span class="small">(Posi／Nega)</span>
-              <th class="color"><span class="nowrap">属性</span>
+              <th class="color"><span class="nowrap">屬性</span>
               <th>
-              <th class="state right"><span class="text">状態</span>
+              <th class="state right"><span class="text">狀態</span>
           </thead>
           <tbody>
             <tr>
-              <td>Dロイス
-              <td>組織的助力(Backup)
+              <td>D露易絲
+              <td><ruby>組織的助力<rp>《</rp><rt>Backup</rt><rp>》</rp></ruby>
               <td class="emo empty"></td>
               <td>―
               <td class="emo empty"></td>
               <td class="color" style=""></td>
-              <td class="comment" colspan="2">只限真身為UGN特務的角色可取得。 在你進行任意判定前可使用。該次判定固定以能力值10，技能LV5的數值進行判定。 該判定的骰數會受到你的侵蝕率加成，並且也可使用泰特斯的效果，但不能對其使用你的異能效果。 該效果每劇本可使用3次。
+              <td class="comment" colspan="2">只限真身為UGN特務的角色可取得。<br>在你進行任意判定前可使用。該次判定固定以能力值10，技能LV5的數值進行判定。<br>該判定的骰數會受到你的侵蝕率加成，並且也可使用泰特斯的效果，但不能對其使用你的異能效果。<br>該效果每劇本可使用3次。
               
             <tr>
               <td>憧憬的上司
               <td>霧谷雄吾
               <td class="emo checked">尊敬</td>
               <td>／
-              <td class="emo ">厭気</td>
+              <td class="emo ">厭煩</td>
               <td class="color" style="background-color:hsla(270,100%, 50%,0.2);">PU</td>
               <td class="comment">曾在事件中救了當時高三的真夜一命，並讓她覺醒、字面上「開始新人生」的恩人，是真夜心懷憧憬、希望為之效命的對象。
-              <td class="state right sperior"><span data-state="ロイス"></span></td>
+              <td class="state right sperior"><span data-state="露易絲"></span></td>
             <tr>
               <td>母親
               <td>九十九純子
-              <td class="emo checked">感服</td>
+              <td class="emo checked">佩服</td>
               <td>／
-              <td class="emo ">厭気</td>
+              <td class="emo ">厭煩</td>
               <td class="color" style="background-color:hsla(  0,100%, 50%,0.2);">RE</td>
               <td class="comment">不知道真夜加入UGN，即使真夜已經離家，仍每天在通訊軟體上分享其生活點滴，儘管對母親甘之如飴的平淡生活不抱興趣，但在覺醒改變想法後，母親數十年來對自己始終不變的「重視」讓她感到佩服。
-              <td class="state right "><span data-state="ロイス"></span></td>
+              <td class="state right "><span data-state="露易絲"></span></td>
             <tr>
               <td>任務相關對象
               <td>亞瑟
-              <td class="emo checked">尽力</td>
+              <td class="emo checked">盡力</td>
               <td>／
               <td class="emo ">劣等感</td>
               <td class="color" style=""></td>
               <td class="comment">聽說是UGN特地找來的名偵探，相信他有獨到之處，如果他有任何需求，看在同樣為霧谷大人效力的份上，真夜將傾力相助。
-              <td class="state right "><span data-state="ロイス"></span></td>
+              <td class="state right "><span data-state="露易絲"></span></td>
             <tr>
               <td>
               <td>
@@ -4190,11 +4197,11 @@ async function downloadAsFullSet(){
       
       <div id="area-battle">
         <section class="box effects" id="effect">
-          <h2>エフェクト</h2>
-          <button class="open-button" onclick="switchEffectNoteFullOpen();" data-open="" data-text-open="効果を全展開" data-text-close="効果を折畳む"></button>
+          <h2>異能</h2>
+          <button class="open-button" onclick="switchEffectNoteFullOpen();" data-open="" data-text-open="展開所有效果" data-text-close="摺疊效果"></button>
           <table class="data-table line-tbody">
             <thead>
-              <tr><th>種別<th>名称<th>LV<th>タイミング<th>技能<th>難易度<th>対象<th>射程<th>侵蝕値<th>制限
+              <tr><th>類別<th>名稱<th>LV<th>時機<th>技能<th>難易度<th>對象<th>射程<th>侵蝕值<th>限制
             </thead>
             <tbody>
                <tr>
@@ -4206,10 +4213,13 @@ async function downloadAsFullSet(){
                 <td><span class="thinest small">自動成功</span>
                 <td>自身
                 <td>至近
-                <td><span class="thinest small">効果参照</span>
+                <td><span class="thinest small">根據效果</span>
                 <td><span class="d-dash">―</span>
               <tr>
-                <td class="note" colspan="9">(LV)D点HP回復、侵蝕値上昇</td>
+                <td class="note" colspan="9">當你陷入無法戰鬥，或是場景結束時可使用。<br>
+                  你解除無法戰鬥並恢復(Lv)D點的HP，同時你的侵蝕率上升等同恢復的HP的數值。<br>
+                  侵蝕率在100%以上時無法使用該異能。<br>
+                  該異能就算陷入重壓亦可使用。</td>
             <tbody>
                <tr>
                 <td rowspan="2"><i class="ef-auto"></i>
@@ -4218,12 +4228,12 @@ async function downloadAsFullSet(){
                 <td>自動動作
                 <td><span class="d-dash">―</span>
                 <td><span class="thinest small">自動成功</span>
-                <td>シーン
+                <td>場景
                 <td>視界
                 <td>0
                 <td><span class="d-dash">―</span>
               <tr>
-                <td class="note" colspan="9">非オーヴァードをエキストラ化</td>
+                <td class="note" colspan="9">於空氣中散佈特殊物質，使一般人無力化。該異能持續到場景結束。</td>
             <tbody>
                <tr>
                 <td rowspan="2"><i class="ef-easy"></i>
@@ -4237,7 +4247,7 @@ async function downloadAsFullSet(){
                 <td>
                 <td>
               <tr>
-                <td class="note" colspan="9">"累積精密的計算與龐大的情報，模仿他人人格到細節地步的異能。 那完美的演技，從神情到聲音都逼真到能讓別人誤認的程度。 GM認為有必要的話，可要求用&lt;知覺&gt;進行判定。"</td>
+                <td class="note" colspan="9">累積精密的計算與龐大的情報，模仿他人人格到細節地步的異能。 那完美的演技，從神情到聲音都逼真到能讓別人誤認的程度。 GM認為有必要的話，可要求用&lt;知覺&gt;進行判定。<span class="right">［<b>經驗值修正</b>:-2點］</span></td>
             <tbody>
                <tr>
                 <td rowspan="2"><i class="ef-easy"></i>
@@ -4251,14 +4261,14 @@ async function downloadAsFullSet(){
                 <td>
                 <td>
               <tr>
-                <td class="note" colspan="9">"將領域擴大至廣範圍，得知其中發生的所有事件的異能。 任何發生在領域內的事物情報全都在你的掌握之中。 GM認為有必要的話，可要求用&lt;RC&gt;進行判定。"</td>
+                <td class="note" colspan="9">將領域擴大至廣範圍，得知其中發生的所有事件的異能。 任何發生在領域內的事物情報全都在你的掌握之中。 GM認為有必要的話，可要求用&lt;RC&gt;進行判定。<span class="right">［<b>經驗值修正</b>:-2點］</span></td>
             <tbody>
                <tr>
                 <td rowspan="2">
                 <td class="name">建議
                 <td>4
                 <td>主要動作
-                <td><span>〈交渉〉</span>
+                <td><span>〈交涉〉</span>
                 <td><span class="thinest small">自動成功</span>
                 <td>單體
                 <td>視界
@@ -4272,7 +4282,7 @@ async function downloadAsFullSet(){
                 <td class="name">引導之花
                 <td>4
                 <td>主要動作
-                <td><span>〈交渉〉</span>/<span>〈RC〉</span>
+                <td><span>〈交涉〉</span>/<span>〈RC〉</span>
                 <td><span class="thinest small">自動成功</span>
                 <td>單體
                 <td>視界
@@ -4288,7 +4298,7 @@ async function downloadAsFullSet(){
                 <td>主要動作
                 <td>冥府領域
                 <td>
-                <td>3体
+                <td>3體
                 <td>
                 <td>3
                 <td>LV/劇本
@@ -4302,7 +4312,7 @@ async function downloadAsFullSet(){
                 <td>自動動作
                 <td><span class="d-dash">―</span>
                 <td><span class="thinest small">自動成功</span>
-                <td>単体
+                <td>單體
                 <td>視界
                 <td>4
                 <td>1/判定 LV/劇本
@@ -4316,7 +4326,7 @@ async function downloadAsFullSet(){
                 <td>自動動作
                 <td><span class="d-dash">―</span>
                 <td><span class="thinest small">自動成功</span>
-                <td><span class="thin">範囲（選択）</span>
+                <td><span class="thin">範圍（選擇）</span>
                 <td>至近
                 <td>2
                 <td>1/回合
@@ -4337,25 +4347,25 @@ async function downloadAsFullSet(){
         
 
         <section class="box" id="combo">
-          <h2>コンボ</h2>
-          <button class="open-button" onclick="swapComboDisplayMode();" data-open="true" data-text-open="詳細表示にする" data-text-close="簡易表示にする"></button>
+          <h2>組合</h2>
+          <button class="open-button" onclick="swapComboDisplayMode();" data-open="true" data-text-open="詳細表示" data-text-close="簡略表示"></button>
           <div class="combo-table">
             <h3><span>啟發</span></h3>
-            <dl class="combo-combo"><dt>組み合わせ<dd><span><span class="thin">引導之花</span>＋<span class="thin">建議</span></span></dl>
+            <dl class="combo-combo"><dt>組合<dd><span><span class="thin">引導之花</span>＋<span class="thin">建議</span></span></dl>
             <div class="combo-in">
-              <dl><dt>タイミング<dd><span>主要動作</span></dl>
-              <dl><dt>技能      <dd><span>交渉</span></dl>
+              <dl><dt>時機<dd><span>主要動作</span></dl>
+              <dl><dt>技能      <dd><span>交涉</span></dl>
               <dl><dt>難易度    <dd><span><span class="thinest small">自動成功</span></span></dl>
-              <dl><dt>対象      <dd><span>単体</span></dl>
+              <dl><dt>對象      <dd><span>單體</span></dl>
               <dl><dt>射程      <dd><span>視界</span></dl>
-              <dl><dt>侵蝕値    <dd><span>8</span></dl>
+              <dl><dt>侵蝕值    <dd><span>8</span></dl>
             </div>
             <dl class="combo-out">
-              <dt class="combo-cond">条件
-              <dt class="combo-dice">ダイス
-              <dt class="combo-crit">Ｃ値
-              <dt class="combo-fixed">達成値修正
-              <dt class="combo-atk">攻撃力
+              <dt class="combo-cond">條件
+              <dt class="combo-dice">骰子數
+              <dt class="combo-crit">Ｃ值
+              <dt class="combo-fixed">達成值修正
+              <dt class="combo-atk">攻擊力
               
               <dd class="combo-cond"><b></b><dd class="combo-dice" data-edb="0">4<dd class="combo-crit"><dd class="combo-fixed">5<dd class="combo-atk">
               
@@ -4366,21 +4376,21 @@ async function downloadAsFullSet(){
             <p class="combo-note">對象下次主要動作暴擊值-1（下限值6），判定骰數+4，判定值+8。<br>侵蝕100%以上時，暴擊值-1（下限值6），判定骰數+5，判定值+10。</p>
           </div><div class="combo-table">
             <h3><span>天啟之聲</span></h3>
-            <dl class="combo-combo"><dt>組み合わせ<dd><span><span class="thin">引導之花</span>＋<span class="thin">建議</span>＋<span class="thin">要點陣型</span></span></dl>
+            <dl class="combo-combo"><dt>組合<dd><span><span class="thin">引導之花</span>＋<span class="thin">建議</span>＋<span class="thin">要點陣型</span></span></dl>
             <div class="combo-in">
-              <dl><dt>タイミング<dd><span>主要動作</span></dl>
-              <dl><dt>技能      <dd><span>交渉</span></dl>
+              <dl><dt>時機<dd><span>主要動作</span></dl>
+              <dl><dt>技能      <dd><span>交涉</span></dl>
               <dl><dt>難易度    <dd><span><span class="thinest small">自動成功</span></span></dl>
-              <dl><dt>対象      <dd><span>3体</span></dl>
+              <dl><dt>對象      <dd><span>3體</span></dl>
               <dl><dt>射程      <dd><span>視界</span></dl>
-              <dl><dt>侵蝕値    <dd><span>11</span></dl>
+              <dl><dt>侵蝕值    <dd><span>11</span></dl>
             </div>
             <dl class="combo-out">
-              <dt class="combo-cond">条件
-              <dt class="combo-dice">ダイス
-              <dt class="combo-crit">Ｃ値
-              <dt class="combo-fixed">達成値修正
-              <dt class="combo-atk">攻撃力
+              <dt class="combo-cond">條件
+              <dt class="combo-dice">骰子數
+              <dt class="combo-crit">Ｃ值
+              <dt class="combo-fixed">達成值修正
+              <dt class="combo-atk">攻擊力
               
               <dd class="combo-cond"><b>100%未満</b><dd class="combo-dice" data-edb="0">4<dd class="combo-crit"><dd class="combo-fixed">5<dd class="combo-atk">
               <dd class="combo-cond"><b>100%以上</b><dd class="combo-dice" data-edb="0">4<dd class="combo-crit"><dd class="combo-fixed">5<dd class="combo-atk">
@@ -4404,15 +4414,15 @@ async function downloadAsFullSet(){
           <section class="box">
             <table class="data-table">
               <thead>
-                <tr><th>武器<th>常備化<th>経験点<th>種別<th>技能<th>命中<th>攻撃力<th><span class="small">ガード<br>値</span><th>射程<th>解説
+                <tr><th>射程<th>常備化<th>經驗值<th>類別<th>技能<th>命中<th>攻擊力<th>格檔值<th>射程<th>說明
               </thead>
               <tbody>
                 <tr>
                   <td>電磁盾牌
                   <td>12
                   <td>
-                  <td>白兵
-                  <td><span class="thin"><span>〈白兵〉</span></span>
+                  <td>近戰
+                  <td><span class="thin"><span>〈近戰〉</span></span>
                   <td>-2
                   <td>2
                   <td>13
@@ -4427,14 +4437,14 @@ async function downloadAsFullSet(){
           <section class="box">
             <table class="data-table">
               <thead>
-                <tr><th>一般アイテム<th>常備化<th>経験点<th>種別<th>技能<th>解説
+                <tr><th>一般道具<th>常備化<th>經驗值<th>類別<th>技能<th>說明
               </thead>
               <tbody>
                 <tr>
                   <td>關係:UGN特務
                   <td>1
                   <td>
-                  <td>コネ
+                  <td>關係
                   <td><span class="thinest small"><span>〈情報:UGN〉</span></span>
                   <td class="note">〈情報：UGN〉的判定+2顆骰子。 
                 
@@ -4445,38 +4455,38 @@ async function downloadAsFullSet(){
         
         <section class="box" id="exps">
           
-          <h2>経験点計算</h2>
+          <h2>經驗值計算</h2>
           <table class="data-table">
             <thead>
               <tr>
-                <th>能力値
+                <th>能力值
                 <th>技能
-                <th>エフェクト
+                <th>異能
                 
-                <th>アイテム
-                <th>メモリー
-                <th>使用総計
+                <th>道具
+                <th>回憶
+                <th>總計使用
                 <th>未使用<wbr>／合計
             <tbody>
               <tr>
                 <td>10
                 <td>15
-                <td>119
+                <td>115
                 
                 <td>0
                 <td>0
-                <td>144
-                <td>-4／140
+                <td>140
+                <td>0／140
             </tbody>
           </table>
         </section>
       </div>
       <div id="enc-bonus">
         <details class="box">
-          <summary>侵蝕率効果表</summary>
+          <summary>侵蝕率效果表</summary>
           <p>
             現在侵蝕率:<input type="number" id="current-encroach" value="32" oninput="encroachBonusSet(this.value);">
-            <input type="checkbox" id="encroach-ea-on" oninput="encroachBonusType();" ><label for="encroach-ea-on">エフェクトアーカイブ</label>
+            <input type="checkbox" id="encroach-ea-on" checked oninput="encroachBonusType();" ><label for="encroach-ea-on">エフェクトアーカイブ</label>
             <input type="checkbox" id="encroach-or-on" oninput="encroachBonusType();" ><label for="encroach-or-on">起源種</label>
           </p>
           <table class="data-table" id="enc-table">
@@ -4531,27 +4541,27 @@ async function downloadAsFullSet(){
       }
       </script>
       <section class="box" id="free-note">
-        <h2>容姿・経歴・その他メモ</h2>
+        <h2>外貌・經歷・筆記</h2>
         <p>外表：戴著細框眼鏡，有著烏黑長髮和秀麗容貌的年輕女性，平常給人感覺文靜，但會根據場合自由切換「性格」，在UNG內部完全不隱藏對霧谷的崇敬；戰鬥時會將頭髮綁成高馬尾。<br><br>　　我還活著？<br>　　看著陌生的天花板，這是真夜醒來後的第一個想法。<br>　　「你醒了嗎？有沒有覺得哪裡不舒服？」<br>　　真夜望向聲音來處，說話的是名看起來很溫和的男性，不過，空氣中雖然瀰漫著讓人想到醫院的消毒水味，他身上穿的卻是普通的黑西裝，房間裡也沒有醫護人員，只有他和真夜兩人。<br>　　「嗯嗯，沒有……不如說感覺很好，身體很輕鬆，腦袋感覺也很通暢，好像以前堵在裡面的東西不見了……」<br>　　男子的表情出現微妙的變化，彷彿壓抑著什麼，這瞬間真夜確信男子和自己依然活著這件事有關，於是她接著說：<br>　　「先生，我記得有種長得像狼人的東西攻擊了我，撕開我的肚子……你知道那是怎麼回事嗎？」<br>　　不用起身查看，真夜也知道自己的肚子完好如初，她同樣也明白男子在心底嘆了口氣。<br>　　「抱歉，這都是我的錯，我接下來的話聽起來會有點荒謬，但希望你能冷靜地聽我說完……」<br>　　男子告訴真夜關於叛教者病毒、超越者、UGN的最低限度情報，以及他用能力救了真夜並導致她覺醒的事。<br>　　真夜沒有驚慌，相反地，她對一臉愧疚地男人說：「抱歉，還沒請教您的名字。」<br>　　男子一楞，說：「……霧谷雄吾。」<br>　　「霧谷先生，謝謝您救了我，還有請不用為我擔心，我現在感覺很好。對了，既然我覺醒了，那麼我能不能加入UNG呢？」<br>　　為什麼要救我呢？即使冒著可能讓我覺醒的風險也不罷手。真夜一度想問霧谷，但她最後放棄了。<br>　　因為「理由」不重要，重要的只有結果－－霧谷救了自己，這意味著自己在他眼中是有價值的，於是他行動了。<br>　　或許霧谷多少認為真夜是為了安慰他才這麼說，但真夜相當清楚，她是發自本心想要加入──儘管感性上她還是無法理解「平凡幸福」的價值，但「想成為某人的力量」，這想法讓她十七年來始終古井無波的心頭一次激昂起來。<br>　　她終於找到能投入熱誠、帶給自己「意義」的目標了。<br><br>　　高中畢業後，真夜表面上在外地的公司上班，實際上則全心投入成為UGN特務的訓練，並以優秀的成績結訓；儘管成為特務的時間尚短，更不擅長戰鬥，但有她參與的任務即使遇到意外也總是能順利完成。</p>
       </section>
       
       <section class="box" id="history">
-        <h2>セッション履歴</h2>
+        <h2>團務歷程</h2>
         <table class="data-table line-tbody">
           <thead>
             <tr>
               <th class="num   ">No.
-              <th class="date  ">日付
-              <th class="title ">タイトル
-              <th class="exp   ">経験点
+              <th class="date  ">日期
+              <th class="title ">標題
+              <th class="exp   ">經驗值
               <th class="gm    ">GM
-              <th class="member">参加者
+              <th class="member">参加人員
             </tr>
           <tbody>
             <tr>
               <td class="num   " >
               <td class="date  " >
-              <td class="title " >フルスクラッチ作成
+              <td class="title " >完全描繪創建
               <td class="exp   ">10
               <td class="gm    "><span></span>
               <td class="member">
@@ -4572,14 +4582,14 @@ async function downloadAsFullSet(){
     </article>
     <div class="back-button"><a href="./">⏎</a></div>
     <div id="image-box" onclick="closeImage()">
-      <img src="./?id=shyJQp&mode=image&cache=1738903966" id="image-box-image">
+      <img src="" id="image-box-image">
     </div> 
   </main>
   
 
   <footer>
     <p class="notes">©FarEast Amusement Research Co.,Ltd.「ダブルクロスThe 3rd Edition」</p>
-    <p class="copyright">©<a href="https://yutorize.2-d.jp">ゆとらいず工房</a>「ゆとシートⅡ」ver.1.26.101</p>
+    <p class="copyright">©ゆとらいず工房</a>「ゆとシートⅡ」ver.1.26.101</p>
   </footer>
 </body>
 
