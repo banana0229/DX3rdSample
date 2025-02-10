@@ -135,7 +135,15 @@ function GetCcfoliaData() {
 			}
 
 			/*Louis*/
-			let loisTable = document.getElementById('lois').children[1].children[1];
+			let loisTable = null;
+			let loisGroup = document.getElementById('lois').children[1];
+			for (i = 0; i < loisGroup.children.length; i++) {
+				let ele = loisGroup.children[i];
+				if (ele.tagName === 'TBODY') {
+					loisTable = ele;
+					break;
+				}
+			}
 			if (loisTable != null) {
 				let loisCount = 0;
 				let maxLoisCount = loisTable.rows.length;
@@ -416,7 +424,7 @@ function convert2zh() {
 		"感覚": "感覺",
 		"社会": "社會",
 		"白兵": "近戰",
-		/*"回避": "回避",*/
+		"回避": "迴避",
 		"射撃": "射擊",
 		"知覚": "知覺",
 		"ＲＣ": "RC",
